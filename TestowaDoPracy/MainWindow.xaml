@@ -1,0 +1,49 @@
+﻿<Window x:Class="TestowaDoPracy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestowaDoPracy"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Login" Height="400" Width="600" ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" MouseDown="Window_MouseDown">
+    <Grid>
+        <Rectangle RadiusY="16" RadiusX="16" Fill="White" />
+        <Image Source="Resources/tlo.jpeg" Margin="310,0,0,0" Stretch="UniformToFill"/>
+        <Rectangle Margin="310,0,0,0">
+            <Rectangle.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#CCE43939" Offset="0.9"/>
+                    <GradientStop Color="#B2E0BC3F"/>
+                    <GradientStop Color="#CCE18F3C" Offset="0.334"/>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <StackPanel Margin="20,10,290,10">
+            <Label Content ="Logowanie" FontFamily="Impact" FontSize="30" Margin="0,5" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#FF575757"><Run Text="Nie masz konta?"/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#FF2F5EB0" MouseDown="TextBlock_MouseDown" Cursor="Hand"><Run Text=" Utwórz konto"/> <Hyperlink NavigateUri="RegistrationPage.xaml" /></TextBlock>
+            </StackPanel>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#FF575757"><Run Text="Zajmie to mniej niż 1 minutę!"/></TextBlock>
+            <StackPanel Margin="0, 15" Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center" Foreground="#707070"/>
+                <TextBox x:Name="LoginUser" materialDesign:HintAssist.Hint="Użytkownik" Width="250" Margin="5" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Password" VerticalAlignment="Center" Foreground="#707070"/>
+                <PasswordBox x:Name="LoginPass" materialDesign:HintAssist.Hint="Hasło" Width="250" Margin="5"/>
+            </StackPanel>
+            <TextBlock x:Name="LogowanieExceptionText" Margin="10,0,0,0">
+                <Run Text="Niepoprawne dane użytkownika!" Foreground="Red"/>
+            </TextBlock>
+            <Grid Margin="0,-10,0,0">
+                <CheckBox x:Name="RememberCheckBox" Content="Zapamiętaj mnie" Margin="5, 10" Cursor="Hand"/>
+                <Label Content="Zapomniałem hasła." HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10,20" Cursor="Hand"/>
+            </Grid>
+            <Button x:Name="LogZalogujButton" HorizontalAlignment="Center" Content="Zaloguj" FontFamily="Impact" FontSize="18" Width="100" Margin="30" Click="LogZalogujButton_Click"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
