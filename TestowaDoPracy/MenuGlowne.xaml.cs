@@ -20,7 +20,6 @@ namespace TestowaDoPracy
     /// </summary>
     public partial class MenuGlowne : Window
     {
-        readonly UserControl hello = new UserControls.OknoPowitaniaUC();
         readonly UserControl chord = new UserControls.TranspozycjaAkordowUC();
         readonly UserControl songList = new UserControls.ListaUtworowUC();
         readonly UserControl sound = new UserControls.TranspozycjaDzwiekowUserControl();
@@ -33,9 +32,15 @@ namespace TestowaDoPracy
             InitializeComponent();
 
             PreviewKeyDown += (s, e) => { if (e.Key == Key.Escape) Close(); }; //Wyłącza program
-            GridControls.Children.Add(hello);
+            GridControls.Children.Add(sound);
 
             UserIdLabel.Text += User.Login;
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
         }
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -47,7 +52,7 @@ namespace TestowaDoPracy
                 case "TranspozycjaAkordow":
                     GridControls.Children.Add(chord);
                     break;
-                case "ListaUtworow":
+                case "DodajUtworow":
                     GridControls.Children.Add(songList);
                     break;
                 case "ListaInstrumentow":
@@ -57,7 +62,7 @@ namespace TestowaDoPracy
                     GridControls.Children.Add(sound);
                         break;
                 default:
-                    GridControls.Children.Add(hello);
+                    GridControls.Children.Add(sound);
                     break;
             }
         }
@@ -75,12 +80,6 @@ namespace TestowaDoPracy
         {
             GridControls.Children.Clear();
             GridControls.Children.Add(profil);
-        }
-
-        private void PackIcon_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            GridControls.Children.Clear();
-            GridControls.Children.Add(hello);
         }
     }
 }

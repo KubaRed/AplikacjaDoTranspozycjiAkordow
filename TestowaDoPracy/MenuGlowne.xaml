@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TestowaDoPracy"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="MenuGlowne" Height="700" Width="1400" ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
+        Title="MenuGlowne" Height="700" Width="1400" ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" MouseDown="Window_MouseDown">
 
     <Grid>
         <Rectangle Margin="0,0,0,0" RadiusX="16" RadiusY="16">
@@ -45,7 +45,7 @@
 
         <Grid x:Name="MenuList" Width="200" HorizontalAlignment="Left">
             <StackPanel>
-                <materialDesign:PackIcon Kind="Music" Height="200" Width="200" MouseDown="PackIcon_MouseDown" Cursor=""/>
+                <materialDesign:PackIcon Kind="Music" Height="200" Width="200" />
                 <ListView x:Name="ListViewMenu" Background="Aqua" Foreground="LawnGreen" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" >
                     <ListViewItem x:Name="TranspozycjaDzwiekow" Height="60" FontFamily="Impact" FontSize="18" Foreground="#DDFFFFFF" Background="#FF673AB7">
                         <StackPanel Orientation="Horizontal">
@@ -57,9 +57,9 @@
                             <TextBlock Text="Tranpozycja Akordów" VerticalAlignment="Center" Margin="10, 10" />
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ListaUtworow" Height="60" FontFamily="Impact" FontSize="18" Foreground="#DDFFFFFF" Background="#FF673AB7">
+                    <ListViewItem x:Name="DodajUtworow" Height="60" FontFamily="Impact" FontSize="18" Foreground="#DDFFFFFF" Background="#FF673AB7">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Lista Utworów" VerticalAlignment="Center" Margin="35, 10" />
+                            <TextBlock Text="Dodaj Utworów" VerticalAlignment="Center" Margin="35, 10" />
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ListaInstrumentow" Height="60" FontFamily="Impact" FontSize="18" Foreground="#DDFFFFFF" Background="#FF673AB7">

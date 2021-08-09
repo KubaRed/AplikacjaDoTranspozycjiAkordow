@@ -63,7 +63,6 @@ namespace TestowaDoPracy
             LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
             LocalSQLServerConnection.da = new SqlDataAdapter(LocalSQLServerConnection.cmd);
             LocalSQLServerConnection.dt = new DataTable();
-       
             LocalSQLServerConnection.da.Fill(LocalSQLServerConnection.dt);
 
             if (LocalSQLServerConnection.dt.Rows.Count == 0)
@@ -73,7 +72,7 @@ namespace TestowaDoPracy
                     if (matchEmail.Success)
                     {
                         try
-                        {
+                        { 
                             LocalSQLServerConnection.OpenConnection();
                             LocalSQLServerConnection.sql = "INSERT INTO Users (Login, Password, email) VALUES ('" + TextBoxUserReg.Text + "', '" + PasswordBoxReg.Password + "', '" + TextBoxEmailReg.Text + "')";
                             LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
@@ -81,14 +80,28 @@ namespace TestowaDoPracy
                             LocalSQLServerConnection.cmd.ExecuteNonQuery(); //INSERT
                             LocalSQLServerConnection.CloseConnection();
 
-                            //LocalSQLServerConnection.OpenConnection();
-                            //LocalSQLServerConnection.sql = "SELECT top 1 UserID FROM Users WHERE Login='" + Login + "' AND Password='" + Password + "'";
-                            //LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
-                            //LocalSQLServerConnection.rd = LocalSQLServerConnection.cmd.ExecuteReader();
-                            //LocalSQLServerConnection.CloseConnection();
+
+                            LocalSQLServerConnection.OpenConnection();
+                            LocalSQLServerConnection.sql = "SELECT top 1 * FROM Users WHERE Login='" + Login + "' AND Password='" + Password + "'";
+                            LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
+                            LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
+                            LocalSQLServerConnection.rd = LocalSQLServerConnection.cmd.ExecuteReader();
+
+                            if (LocalSQLServerConnection.rd.Read())
+                            {
+                                User.UserID = LocalSQLServerConnection.rd["UserID"].ToString();
+                                User.Login = LocalSQLServerConnection.rd["Login"].ToString();
+                                User.Password = LocalSQLServerConnection.rd["Password"].ToString();
+                                User.Email = LocalSQLServerConnection.rd["email"].ToString();
+                            }
+                            LocalSQLServerConnection.CloseConnection();
+
 
                             MessageBox.Show("Użytkownik " + TextBoxUserReg.Text + " został poprawnie utworzony.", "Rejestracja", MessageBoxButton.OK, MessageBoxImage.Information);
 
+                            MenuGlowne menu = new MenuGlowne();
+                            menu.Show();
+                            this.Close();
 
                         }
                         catch (SqlException sqlex)
@@ -103,13 +116,18 @@ namespace TestowaDoPracy
                                    + Environment.NewLine + "opis: " + ex.Message.ToString(), "Rejestracja"
                                    , MessageBoxButton.OK, MessageBoxImage.Error);
                         }
+
+
                     }
                     else { MessageBox.Show("Niepoprawny adres E-mail!", "Rejestracja", MessageBoxButton.OK, MessageBoxImage.Error); }
                 }
                 else { MessageBox.Show("Podane hasła nie pasują do siebie, lub są zbyt krótkie (min. 8 znaków)!", "Rejestracja", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
             else { MessageBox.Show("Podany użytkownik, lub email juz został wykorzystany!", "Rejestracja", MessageBoxButton.OK, MessageBoxImage.Error); }
+
+            LocalSQLServerConnection.CloseConnection();
         }
+
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {

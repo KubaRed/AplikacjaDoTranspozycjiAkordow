@@ -76,6 +76,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Klasy\CheckRadioButton.cs" />
+    <Compile Include="Klasy\Combobox.cs" />
     <Compile Include="Klasy\NoteTransposition.cs" />
     <Compile Include="Klasy\LocalSQLServerConnection.cs" />
     <Compile Include="Klasy\ReadFromFile.cs" />
@@ -94,9 +95,6 @@
     </Compile>
     <Compile Include="UserControls\ListaUtworowUC.xaml.cs">
       <DependentUpon>ListaUtworowUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\OknoPowitaniaUC.xaml.cs">
-      <DependentUpon>OknoPowitaniaUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ProfilUserControl.xaml.cs">
       <DependentUpon>ProfilUserControl.xaml</DependentUpon>
@@ -132,10 +130,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\ListaUtworowUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\OknoPowitaniaUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

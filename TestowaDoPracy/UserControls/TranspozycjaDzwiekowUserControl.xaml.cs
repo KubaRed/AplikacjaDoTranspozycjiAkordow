@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TestowaDoPracy.Klasy;
+using System.Data;
+using System.Data.SqlClient;
+
 
 
 
@@ -33,6 +36,8 @@ namespace TestowaDoPracy.UserControls
             stackPanelStrojPoczatkowy.Visibility = Visibility.Hidden;
             stackPanelStrojWynik.Visibility = Visibility.Hidden;
             MainGrid.Background.Opacity = 0;
+
+            Combobox.FillComboboxMelody(comboBoxMelodie);
         }
 
         private void CheckBoxInstrument_Checked(object sender, RoutedEventArgs e)

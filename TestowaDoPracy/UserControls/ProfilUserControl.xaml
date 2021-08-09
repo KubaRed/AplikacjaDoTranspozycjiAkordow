@@ -34,7 +34,7 @@
 
             <StackPanel Margin="0,0" Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Password" Height="50" Width="50" VerticalAlignment="Center" Foreground="#FF171313"/>
-                <TextBox x:Name="TextBoxOldPass" materialDesign:HintAssist.Hint="Podaj stare hasło" Width="400" Margin="5"  FontSize="20" IsReadOnly="True"/>
+                <TextBox x:Name="TextBoxOldPass" materialDesign:HintAssist.Hint="Podaj stare hasło" Width="400" Margin="5"  FontSize="20"/>
             </StackPanel>
 
             <StackPanel Margin="0,40" Orientation="Horizontal">
