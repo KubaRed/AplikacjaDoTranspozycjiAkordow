@@ -58,7 +58,7 @@ namespace TestowaDoPracy
             Match matchEmail = regexEmail.Match(email);
 
             LocalSQLServerConnection.OpenConnection();
-            LocalSQLServerConnection.sql = "select Top 1 * From Users Where Login='" + TextBoxUserReg.Text + "' ";
+            LocalSQLServerConnection.sql = "select Top 1 * From Users Where Login='" + TextBoxUserReg.Text + "' OR email ='" + TextBoxEmailReg.Text + "' ";
             LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
             LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
             LocalSQLServerConnection.da = new SqlDataAdapter(LocalSQLServerConnection.cmd);
@@ -108,7 +108,7 @@ namespace TestowaDoPracy
                 }
                 else { MessageBox.Show("Podane hasła nie pasują do siebie, lub są zbyt krótkie (min. 8 znaków)!", "Rejestracja", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
-            else { MessageBox.Show("Podany użytkownik już istnieje!", "Rejestracja", MessageBoxButton.OK, MessageBoxImage.Error); }
+            else { MessageBox.Show("Podany użytkownik, lub email juz został wykorzystany!", "Rejestracja", MessageBoxButton.OK, MessageBoxImage.Error); }
         }
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
