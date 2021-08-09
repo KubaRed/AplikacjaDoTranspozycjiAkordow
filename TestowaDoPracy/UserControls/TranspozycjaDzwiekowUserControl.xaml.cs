@@ -41,11 +41,18 @@ namespace TestowaDoPracy.UserControls
             Combobox.FillComboboxInstrument(comboBoxInstrument);
             Combobox.FillComboboxInstrument(comboBoxInstrumentWynik);
 
+            this.comboBoxMelodie.SelectionChanged += new SelectionChangedEventHandler(OnMyComboBoxChanged);
+        }
 
+        private void OnMyComboBoxChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Melody melody = comboBoxMelodie.SelectedItem as Melody;
+
+            TextBoxBefore.Text = melody.Notes;
         }
 
         private void CheckBoxInstrument_Checked(object sender, RoutedEventArgs e)
-        {
+        { 
             checkBoxStroj.IsChecked = false;
 
             comboBoxInstrument.Visibility = Visibility.Visible;
@@ -105,6 +112,11 @@ namespace TestowaDoPracy.UserControls
             }
         }
 
+        private void Combobox_Click(object sender, MouseButtonEventArgs e)
+        {
+            Melody melody = comboBoxMelodie.SelectedItem as Melody;
 
+            TextBoxBefore.Text = melody.Notes;
+        }
     }
 }
