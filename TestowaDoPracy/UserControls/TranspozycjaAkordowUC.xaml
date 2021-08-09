@@ -20,7 +20,7 @@
 
             <StackPanel Margin="0,40" Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Music" Height="50" Width="50" VerticalAlignment="Center" Foreground="#FF171313"/>
-                <TextBox materialDesign:HintAssist.Hint="Podaj akordy do transpozycji" Width="400" Margin="5"  FontSize="20"/>
+                <TextBox Name="TextBoxBefore" materialDesign:HintAssist.Hint="Podaj akordy do transpozycji" Width="400" Margin="5"  FontSize="20"/>
                 <ComboBox x:Name="comboBoxAkordy" Width="200" Margin="20,0,0,0" FontSize="20 "></ComboBox>
 
             </StackPanel>
@@ -97,7 +97,7 @@
 
             <StackPanel Margin="0,0" Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Music" Height="50" Width="50" VerticalAlignment="Center" Foreground="#FF171313"/>
-                <TextBox materialDesign:HintAssist.Hint="Akordy po transpozycji" Width="400" Margin="5"  FontSize="20" IsReadOnly="True"/>
+                <TextBox x:Name="TextBoxAfter" materialDesign:HintAssist.Hint="Akordy po transpozycji" Width="400" Margin="5"  FontSize="20" IsReadOnly="True"/>
                 <ComboBox x:Name="comboBoxAkordyWynik" Width="200" Margin="20,0,0,0" FontSize="20 ">
 
                 </ComboBox>
@@ -166,7 +166,7 @@
                              IsChecked="False"/>
             </StackPanel>
 
-            <Button Content="Transponuj" HorizontalAlignment="Center" Height="80" Margin="0,70,0,0" Width="220" FontFamily="Impact" FontSize="20"/>
+            <Button Content="Transponuj" HorizontalAlignment="Center" Height="80" Margin="0,70,0,0" Width="220" FontFamily="Impact" FontSize="20" Click="Button_Click"/>
 
         </StackPanel>
     </Grid>

@@ -35,16 +35,6 @@ namespace TestowaDoPracy.UserControls
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow main = new MainWindow();
-            main.Show();
-            MenuGlowne menu = new MenuGlowne();
-            menu.Close();
-
-            User.ClearTempData();
-        }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
@@ -52,13 +42,12 @@ namespace TestowaDoPracy.UserControls
 
         private void PasswordChangeButton_Click(object sender, RoutedEventArgs e)
         {
-            bool param = false;
 
             try
             {
                 LocalSQLServerConnection.OpenConnection();
 
-                LocalSQLServerConnection.sql = ("SELECT top 1 * From Users Where Login = '" + TextBoxUser.Text + "' AND Password = '" + TextBoxOldPass.Text + "'");
+                LocalSQLServerConnection.sql = ("UPDATE Users SET Password = '" + TextBoxNewPass.Text + "' " + " Where Login = '" + TextBoxUser.Text + "' AND Password = '" + TextBoxOldPass.Text + "'"); ;
                 LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
                 LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
                 LocalSQLServerConnection.rd = LocalSQLServerConnection.cmd.ExecuteReader();
@@ -69,14 +58,28 @@ namespace TestowaDoPracy.UserControls
                     User.Login = LocalSQLServerConnection.rd["Login"].ToString();
                     User.Password = LocalSQLServerConnection.rd["Password"].ToString();
                     User.Email = LocalSQLServerConnection.rd["email"].ToString();
-                    param = true;
+
                 }
 
                 LocalSQLServerConnection.CloseConnection();
+
+
             }
             catch (Exception ex)
             {
-                
+                MessageBox.Show("Hasło nie zostało zmienione. Sprawdź poprawność wpisanego starego hasła."
+                                  + Environment.NewLine + "opis: " + ex.Message.ToString(), "Profil"
+                                  , MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            if (User.Password == TextBoxNewPass.Text)
+            {
+                MessageBox.Show("Hasło zostało Zmienione.", "Profil", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Hasło nie zostało zmienione. Sprawdź poprawność wpisanego starego hasła.", "Profil"
+                                  , MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

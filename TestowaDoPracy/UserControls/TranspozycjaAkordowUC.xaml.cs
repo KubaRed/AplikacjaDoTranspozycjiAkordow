@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestowaDoPracy.Klasy;
 
 namespace TestowaDoPracy.UserControls
 {
@@ -58,6 +59,23 @@ namespace TestowaDoPracy.UserControls
         {
             stackPanelStrojPoczatkowy.Visibility = Visibility.Hidden;
             stackPanelStrojWynik.Visibility = Visibility.Hidden;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var checkedButtonFirst = stackPanelStrojPoczatkowy.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked.Value);
+            var checkedButtonSecond = stackPanelStrojWynik.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked.Value);
+
+            try
+            {
+                TextBoxAfter.Text = ChordTransposition.TranspositionFromChord(TextBoxBefore.Text, CheckRadioButton.CheckRadioButtons(checkedButtonFirst.Name, checkedButtonSecond.Name));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nie wybrano metody lub stroju potrzebnego do przeprowadzenia transpozycji!"
+                                       + Environment.NewLine + "opis: " + ex.Message.ToString(), "Transpozycja Akordów."
+                                       , MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TestowaDoPracy.Klasy;
+using System.Data;
+using System.Data.SqlClient;
+
 
 
 
@@ -28,25 +31,29 @@ namespace TestowaDoPracy.UserControls
         {
             InitializeComponent();
 
-            comboBoxAkordy.Visibility = Visibility.Hidden;
-            comboBoxAkordyWynik.Visibility = Visibility.Hidden;
+            comboBoxInstrument.Visibility = Visibility.Hidden;
+            comboBoxInstrumentWynik.Visibility = Visibility.Hidden;
             stackPanelStrojPoczatkowy.Visibility = Visibility.Hidden;
             stackPanelStrojWynik.Visibility = Visibility.Hidden;
             MainGrid.Background.Opacity = 0;
+
+            Combobox.FillComboboxMelody(comboBoxMelodie);
+            Combobox.FillComboboxInstrument(comboBoxInstrument);
+            Combobox.FillComboboxInstrument(comboBoxInstrumentWynik);
         }
 
         private void CheckBoxInstrument_Checked(object sender, RoutedEventArgs e)
         {
             checkBoxStroj.IsChecked = false;
 
-            comboBoxAkordy.Visibility = Visibility.Visible;
-            comboBoxAkordyWynik.Visibility = Visibility.Visible;
+            comboBoxInstrument.Visibility = Visibility.Visible;
+            comboBoxInstrumentWynik.Visibility = Visibility.Visible;
         }
 
         private void CheckBoxInstrument_Unchecked(object sender, RoutedEventArgs e)
         {
-            comboBoxAkordy.Visibility = Visibility.Hidden;
-            comboBoxAkordyWynik.Visibility = Visibility.Hidden;
+            comboBoxInstrument.Visibility = Visibility.Hidden;
+            comboBoxInstrumentWynik.Visibility = Visibility.Hidden;
         }
 
         private void CheckBoxStroj_Checked(object sender, RoutedEventArgs e)
@@ -68,6 +75,10 @@ namespace TestowaDoPracy.UserControls
             var checkedButtonFirst = stackPanelStrojPoczatkowy.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked.Value);
             var checkedButtonSecond = stackPanelStrojWynik.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked.Value);
 
+
+            Instrument instrument = comboBoxInstrument.SelectedItem as Instrument;
+            Console.WriteLine(instrument.Name);
+
             try
             {
                 TextBoxAfter.Text = NoteTransposition.TranspositionFromNote(TextBoxBefore.Text, CheckRadioButton.CheckRadioButtons(checkedButtonFirst.Name, checkedButtonSecond.Name));
@@ -79,5 +90,6 @@ namespace TestowaDoPracy.UserControls
                                        , MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
     }
 }

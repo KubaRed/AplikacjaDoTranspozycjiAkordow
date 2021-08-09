@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TestowaDoPracy"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="RegistrationPage" Height="400" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+        Title="RegistrationPage" Height="400" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" MouseDown="Window_MouseDown">
     <Grid>
         <Rectangle RadiusY="16" RadiusX="16" Fill="White" />
         <Image Source="Resources/tlo.jpeg" Margin="310,0,0,0" Stretch="UniformToFill"/>
