@@ -75,6 +75,10 @@ namespace TestowaDoPracy.UserControls
             var checkedButtonFirst = stackPanelStrojPoczatkowy.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked.Value);
             var checkedButtonSecond = stackPanelStrojWynik.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked.Value);
 
+
+            Instrument instrument = comboBoxInstrument.SelectedItem as Instrument;
+            Console.WriteLine(instrument.Name);
+
             try
             {
                 TextBoxAfter.Text = NoteTransposition.TranspositionFromNote(TextBoxBefore.Text, CheckRadioButton.CheckRadioButtons(checkedButtonFirst.Name, checkedButtonSecond.Name));

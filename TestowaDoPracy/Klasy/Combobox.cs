@@ -7,6 +7,7 @@ using System.Windows;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Controls;
+using System.Data.Entity.ModelConfiguration.Configuration;
 
 namespace TestowaDoPracy.Klasy
 {
@@ -56,8 +57,13 @@ namespace TestowaDoPracy.Klasy
 
                 while (LocalSQLServerConnection.rd.Read())
                 {
+                    Instrument instrument = new Instrument();
+                    instrument.ID = LocalSQLServerConnection.rd.GetInt32(0);
+                    instrument.Name = LocalSQLServerConnection.rd.GetString(2);
+                    instrument.Key = LocalSQLServerConnection.rd.GetString(3);
+
                     string name = LocalSQLServerConnection.rd.GetString(2);
-                    combobox.Items.Add(name);
+                    combobox.Items.Add(instrument);
                 }
 
 

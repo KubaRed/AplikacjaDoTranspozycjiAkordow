@@ -100,7 +100,7 @@ namespace TestowaDoPracy.Klasy
             LocalSQLServerConnection.CloseConnection();
         }
 
-        public static void AddUserToDataBase(string login, string pass1, string pass2, string email)
+        public static void AddUserToDataBase(string login, string pass1, string pass2, string email, RegistrationPage reg)
         {
             Regex regexEmail = new Regex(RegularExpresions.EmailRegex());
             Match matchEmail = regexEmail.Match(email);
@@ -147,7 +147,9 @@ namespace TestowaDoPracy.Klasy
 
                             MessageBox.Show("Użytkownik " + login + " został poprawnie utworzony.", "Rejestracja", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                           
+                            MenuGlowne menu = new MenuGlowne();
+                            menu.Show();
+                            reg.Close();
 
                         }
                         catch (SqlException sqlex)

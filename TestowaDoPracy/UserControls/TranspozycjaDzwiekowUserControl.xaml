@@ -21,7 +21,7 @@
             <StackPanel Margin="0,40" Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Music" Height="50" Width="50" VerticalAlignment="Center" Foreground="#FF171313"/>
                 <TextBox Name="TextBoxBefore" materialDesign:HintAssist.Hint="Podaj dźwięki do transpozycji" Width="400" Margin="5"  FontSize="20"/>
-                <ComboBox x:Name="comboBoxInstrument" Width="200" Margin="20,0,0,0" FontSize="20 "></ComboBox>
+                <ComboBox x:Name="comboBoxInstrument" Width="200" Margin="20,0,0,0" FontSize="20 " DisplayMemberPath="Name"/>
 
             </StackPanel>
 

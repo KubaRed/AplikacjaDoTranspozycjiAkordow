@@ -77,7 +77,9 @@
     </ApplicationDefinition>
     <Compile Include="Klasy\AddToDataBase.cs" />
     <Compile Include="Klasy\CheckRadioButton.cs" />
+    <Compile Include="Klasy\ChordTransposition.cs" />
     <Compile Include="Klasy\Combobox.cs" />
+    <Compile Include="Klasy\Instrument.cs" />
     <Compile Include="Klasy\NoteTransposition.cs" />
     <Compile Include="Klasy\LocalSQLServerConnection.cs" />
     <Compile Include="Klasy\ReadFromFile.cs" />

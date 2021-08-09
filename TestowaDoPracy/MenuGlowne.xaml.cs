@@ -51,6 +51,7 @@ namespace TestowaDoPracy
             {
                 case "TranspozycjaAkordow":
                     GridControls.Children.Add(chord);
+
                     break;
                 case "DodajUtwor":
                     GridControls.Children.Add(songList);

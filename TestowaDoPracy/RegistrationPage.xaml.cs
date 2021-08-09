@@ -52,12 +52,13 @@ namespace TestowaDoPracy
             string password2 = PasswordBoxReg2.Password.ToString();
             string login = TextBoxUserReg.Text;
             string email = TextBoxEmailReg.Text;
+            RegistrationPage registration = new RegistrationPage();
+            registration = this;
 
-            AddToDataBase.AddUserToDataBase(login, password, password2, email);
+            AddToDataBase.AddUserToDataBase(login, password, password2, email, registration);
 
-            MenuGlowne menu = new MenuGlowne();
-            menu.Show();
-            this.Close();
+
+            
 
             
         }
