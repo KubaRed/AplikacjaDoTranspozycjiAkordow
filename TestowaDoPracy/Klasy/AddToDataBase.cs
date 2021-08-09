@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -96,6 +97,80 @@ namespace TestowaDoPracy.Klasy
             {
                 MessageBox.Show("Utwór " + title + " nie został dodany. Wypełnij wszystkie pola, lub podany tutył już istnieje", "Lista utworów", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+            LocalSQLServerConnection.CloseConnection();
+        }
+
+        public static void AddUserToDataBase(string login, string pass1, string pass2, string email)
+        {
+            Regex regexEmail = new Regex(RegularExpresions.EmailRegex());
+            Match matchEmail = regexEmail.Match(email);
+
+            LocalSQLServerConnection.OpenConnection();
+            LocalSQLServerConnection.sql = "select Top 1 * From Users Where Login='" + login + "' OR email ='" + email + "' ";
+            LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
+            LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
+            LocalSQLServerConnection.da = new SqlDataAdapter(LocalSQLServerConnection.cmd);
+            LocalSQLServerConnection.dt = new DataTable();
+            LocalSQLServerConnection.da.Fill(LocalSQLServerConnection.dt);
+
+            if (LocalSQLServerConnection.dt.Rows.Count == 0)
+            {
+                if (pass1 == pass2 && pass1.Length > 7)
+                {
+                    if (matchEmail.Success)
+                    {
+                        try
+                        {
+                            LocalSQLServerConnection.OpenConnection();
+                            LocalSQLServerConnection.sql = "INSERT INTO Users (Login, Password, email) VALUES ('" + login + "', '" + pass1 + "', '" + email + "')";
+                            LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
+                            LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
+                            LocalSQLServerConnection.cmd.ExecuteNonQuery(); //INSERT
+                            LocalSQLServerConnection.CloseConnection();
+
+
+                            LocalSQLServerConnection.OpenConnection();
+                            LocalSQLServerConnection.sql = "SELECT top 1 * FROM Users WHERE Login='" + login + "' AND Password='" + pass1 + "'";
+                            LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
+                            LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
+                            LocalSQLServerConnection.rd = LocalSQLServerConnection.cmd.ExecuteReader();
+
+                            if (LocalSQLServerConnection.rd.Read())
+                            {
+                                User.UserID = LocalSQLServerConnection.rd["UserID"].ToString();
+                                User.Login = LocalSQLServerConnection.rd["Login"].ToString();
+                                User.Password = LocalSQLServerConnection.rd["Password"].ToString();
+                                User.Email = LocalSQLServerConnection.rd["email"].ToString();
+                            }
+                            LocalSQLServerConnection.CloseConnection();
+
+
+                            MessageBox.Show("Użytkownik " + login + " został poprawnie utworzony.", "Rejestracja", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                           
+
+                        }
+                        catch (SqlException sqlex)
+                        {
+                            MessageBox.Show("Błąd przy rejestracji!"
+                                   + Environment.NewLine + "opis: " + sqlex.Message.ToString(), "Rejestracja"
+                                   , MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Błąd przy rejestracji"
+                                   + Environment.NewLine + "opis: " + ex.Message.ToString(), "Rejestracja"
+                                   , MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+
+
+                    }
+                    else { MessageBox.Show("Niepoprawny adres E-mail!", "Rejestracja", MessageBoxButton.OK, MessageBoxImage.Error); }
+                }
+                else { MessageBox.Show("Podane hasła nie pasują do siebie, lub są zbyt krótkie (min. 8 znaków)!", "Rejestracja", MessageBoxButton.OK, MessageBoxImage.Error); }
+            }
+            else { MessageBox.Show("Podany użytkownik, lub email juz został wykorzystany!", "Rejestracja", MessageBoxButton.OK, MessageBoxImage.Error); }
+
             LocalSQLServerConnection.CloseConnection();
         }
     }

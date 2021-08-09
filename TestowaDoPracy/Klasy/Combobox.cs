@@ -41,5 +41,35 @@ namespace TestowaDoPracy.Klasy
             }
 
         }
+
+        public static void FillComboboxInstrument(ComboBox combobox)
+        {
+
+            try
+            {
+                LocalSQLServerConnection.OpenConnection();
+
+                LocalSQLServerConnection.sql = "SELECT * FROM Instruments Where UserID=" + User.UserID;
+                LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
+                LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
+                LocalSQLServerConnection.rd = LocalSQLServerConnection.cmd.ExecuteReader();
+
+                while (LocalSQLServerConnection.rd.Read())
+                {
+                    string name = LocalSQLServerConnection.rd.GetString(2);
+                    combobox.Items.Add(name);
+                }
+
+
+                LocalSQLServerConnection.CloseConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd przy dodawaniu utworu!"
+                            + Environment.NewLine + "opis: " + ex.Message.ToString(), "ComboBox"
+                            , MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
     }
 }
