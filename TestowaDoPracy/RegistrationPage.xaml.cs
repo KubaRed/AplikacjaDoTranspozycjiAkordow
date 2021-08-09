@@ -81,11 +81,11 @@ namespace TestowaDoPracy
                             LocalSQLServerConnection.cmd.ExecuteNonQuery(); //INSERT
                             LocalSQLServerConnection.CloseConnection();
 
-                            LocalSQLServerConnection.OpenConnection();
-                            LocalSQLServerConnection.sql = "SELECT top 1 UserID FROM Users WHERE Login='" + Login + "' AND Password='" + Password + "'";
-                            LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
-                            LocalSQLServerConnection.rd = LocalSQLServerConnection.cmd.ExecuteReader();
-                            LocalSQLServerConnection.CloseConnection();
+                            //LocalSQLServerConnection.OpenConnection();
+                            //LocalSQLServerConnection.sql = "SELECT top 1 UserID FROM Users WHERE Login='" + Login + "' AND Password='" + Password + "'";
+                            //LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
+                            //LocalSQLServerConnection.rd = LocalSQLServerConnection.cmd.ExecuteReader();
+                            //LocalSQLServerConnection.CloseConnection();
 
                             MessageBox.Show("Użytkownik " + TextBoxUserReg.Text + " został poprawnie utworzony.", "Rejestracja", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -102,12 +102,6 @@ namespace TestowaDoPracy
                             MessageBox.Show("Błąd przy rejestracji"
                                    + Environment.NewLine + "opis: " + ex.Message.ToString(), "Rejestracja"
                                    , MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                        finally
-                        {
-                            MenuGlowne menuGlowne = new MenuGlowne();
-                            menuGlowne.Show();
-                            this.Close();
                         }
                     }
                     else { MessageBox.Show("Niepoprawny adres E-mail!", "Rejestracja", MessageBoxButton.OK, MessageBoxImage.Error); }

@@ -80,6 +80,7 @@
     <Compile Include="Klasy\LocalSQLServerConnection.cs" />
     <Compile Include="Klasy\ReadFromFile.cs" />
     <Compile Include="Klasy\SaveToFile.cs" />
+    <Compile Include="Klasy\SongListDb.cs" />
     <Compile Include="Klasy\User.cs" />
     <Compile Include="Klasy\RegularExpresions.cs" />
     <Compile Include="MenuGlowne.xaml.cs">

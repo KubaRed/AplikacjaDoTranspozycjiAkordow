@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestowaDoPracy.Klasy;
 
 namespace TestowaDoPracy.UserControls
 {
@@ -26,9 +27,9 @@ namespace TestowaDoPracy.UserControls
             MainGrid.Background.Opacity = 0;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            SongListDb.InsertSongIntoDb(TextBoxTitle.Text, TextBoxNotes.Text);
         }
 
 
