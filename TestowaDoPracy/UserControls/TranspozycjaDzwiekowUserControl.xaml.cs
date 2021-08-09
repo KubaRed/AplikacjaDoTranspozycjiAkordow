@@ -112,7 +112,7 @@ namespace TestowaDoPracy.UserControls
             }
         }
 
-        private void Combobox_Click(object sender, MouseButtonEventArgs e)
+        private void Combobox_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             Melody melody = comboBoxMelodie.SelectedItem as Melody;
 
