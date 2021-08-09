@@ -14,8 +14,6 @@ namespace TestowaDoPracy.Klasy
         public static string TranspositionFromChord(string textToSplit, int key)
         {
             string wynik = "";
-
-
             string[] separator = { ", ", " " };
             string[] splitList = textToSplit.Split(separator, StringSplitOptions.RemoveEmptyEntries);
             string[] splitListResult = new string[splitList.Length];

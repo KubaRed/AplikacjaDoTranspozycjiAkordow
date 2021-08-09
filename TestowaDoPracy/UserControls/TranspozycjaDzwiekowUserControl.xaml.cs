@@ -40,6 +40,8 @@ namespace TestowaDoPracy.UserControls
             Combobox.FillComboboxMelody(comboBoxMelodie);
             Combobox.FillComboboxInstrument(comboBoxInstrument);
             Combobox.FillComboboxInstrument(comboBoxInstrumentWynik);
+
+
         }
 
         private void CheckBoxInstrument_Checked(object sender, RoutedEventArgs e)
@@ -71,17 +73,29 @@ namespace TestowaDoPracy.UserControls
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        { 
+
             var checkedButtonFirst = stackPanelStrojPoczatkowy.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked.Value);
             var checkedButtonSecond = stackPanelStrojWynik.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked.Value);
 
+            bool cbf = stackPanelStrojPoczatkowy.Children.OfType<RadioButton>().Any(r => r.IsChecked.Value);
+            bool cbs = stackPanelStrojWynik.Children.OfType<RadioButton>().Any(r => r.IsChecked.Value);
 
             Instrument instrument = comboBoxInstrument.SelectedItem as Instrument;
-            Console.WriteLine(instrument.Name);
+            Instrument instrument2 = comboBoxInstrumentWynik.SelectedItem as Instrument;
 
             try
             {
-                TextBoxAfter.Text = NoteTransposition.TranspositionFromNote(TextBoxBefore.Text, CheckRadioButton.CheckRadioButtons(checkedButtonFirst.Name, checkedButtonSecond.Name));
+                if (checkBoxInstrument.IsChecked == true && instrument != null && instrument2 != null)
+                {
+                    TextBoxAfter.Text = NoteTransposition.TranspositionFromNote(TextBoxBefore.Text, CheckSelectedInstruments.CheckKeyOfSelectedInstruments(instrument.Key, instrument2.Key));
+
+                }
+                else if (checkBoxStroj.IsChecked == true && cbf == true && cbs == true)
+                {
+                    TextBoxAfter.Text = NoteTransposition.TranspositionFromNote(TextBoxBefore.Text, CheckRadioButton.CheckRadioButtons(checkedButtonFirst.Name, checkedButtonSecond.Name));
+                }
+                else { MessageBox.Show("Nie wybrano stroju lub instrumentu względem którego ma być poddana transpozycja", "Transpozycja dźwięków",MessageBoxButton.OK, MessageBoxImage.Information); }
             }
             catch (Exception ex)
             {
@@ -90,6 +104,7 @@ namespace TestowaDoPracy.UserControls
                                        , MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
     }
 }

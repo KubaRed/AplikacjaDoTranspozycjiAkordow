@@ -93,13 +93,13 @@
                 <CheckBox x:Name="checkBoxInstrument" Content="Transpozycja względem instrumentów" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxInstrument_Checked" Unchecked="CheckBoxInstrument_Unchecked"/>
                 <CheckBox x:Name="checkBoxStroj" Content="Transpozycja względem strojów" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxStroj_Checked" Unchecked="CheckBoxStroj_Unchecked"/>
                 <TextBlock Text="Wybierz Melodię do stranspozycji" FontSize="20" FontFamily="Impact" Foreground="White" Margin="50,20,0,0"/>
-                <ComboBox x:Name="comboBoxMelodie" Width="360" Margin="0,20,0,0" FontSize="20 " Background="White" FontFamily="Impact"/>
+                <ComboBox x:Name="comboBoxMelodie" Width="360" Margin="0,20,0,0" FontSize="20 " Background="White" FontFamily="Impact" DisplayMemberPath="Title"/>
             </StackPanel>
 
             <StackPanel Margin="0,-20,0,0" Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Music" Height="50" Width="50" VerticalAlignment="Center" Foreground="#FF171313"/>
                 <TextBox x:Name="TextBoxAfter" materialDesign:HintAssist.Hint="Dźwięki po transpozycji" Width="400" Margin="5"  FontSize="20" IsReadOnly="True"/>
-                <ComboBox x:Name="comboBoxInstrumentWynik" Width="200" Margin="20,0,0,0" FontSize="20 "/>
+                <ComboBox x:Name="comboBoxInstrumentWynik" Width="200" Margin="20,0,0,0" FontSize="20 " DisplayMemberPath="Name"/>
             </StackPanel>
 
             <StackPanel x:Name="stackPanelStrojWynik">
