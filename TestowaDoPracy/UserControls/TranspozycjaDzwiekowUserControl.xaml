@@ -9,7 +9,7 @@
              d:DesignHeight="640" d:DesignWidth="1200">
     <Grid x:Name="MainGrid" Background="#FF878686">
 
-        <Rectangle HorizontalAlignment="Left" Height="236" Margin="754,157,0,0" VerticalAlignment="Top" Width="392" Fill="#FF673AB7" RadiusY="5" RadiusX="5"/>
+        <Rectangle HorizontalAlignment="Left" Height="225" Margin="754,168,0,0" VerticalAlignment="Top" Width="392" Fill="#FF673AB7" RadiusY="5" RadiusX="5"/>
 
         <StackPanel Margin="40">
             <Label Content ="Transpozycja Dzwięków" FontFamily="Impact" FontSize="32" Margin="0,5" VerticalAlignment="Top" HorizontalAlignment="Left"/>
@@ -93,7 +93,7 @@
                 <CheckBox x:Name="checkBoxInstrument" Content="Transpozycja względem instrumentów" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxInstrument_Checked" Unchecked="CheckBoxInstrument_Unchecked"/>
                 <CheckBox x:Name="checkBoxStroj" Content="Transpozycja względem strojów" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxStroj_Checked" Unchecked="CheckBoxStroj_Unchecked"/>
                 <TextBlock Text="Wybierz Melodię do stranspozycji" FontSize="20" FontFamily="Impact" Foreground="White" Margin="50,20,0,0"/>
-                <ComboBox x:Name="comboBoxMelodie" Width="380" Margin="0,20,0,0" FontSize="20 " Background="White" />
+                <ComboBox x:Name="comboBoxMelodie" Width="360" Margin="0,20,0,0" FontSize="20 " Background="White" FontFamily="Impact" MouseDown="comboBoxMelodie_MouseDown" />
             </StackPanel>
 
             <StackPanel Margin="0,-20,0,0" Orientation="Horizontal">

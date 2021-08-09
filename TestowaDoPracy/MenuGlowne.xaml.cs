@@ -52,10 +52,10 @@ namespace TestowaDoPracy
                 case "TranspozycjaAkordow":
                     GridControls.Children.Add(chord);
                     break;
-                case "DodajUtworow":
+                case "DodajUtwor":
                     GridControls.Children.Add(songList);
                     break;
-                case "ListaInstrumentow":
+                case "DodajInstrument":
                     GridControls.Children.Add(instrument);
                     break;
                 case "TranspozycjaDzwiekow":

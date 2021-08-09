@@ -84,5 +84,10 @@ namespace TestowaDoPracy.UserControls
                                        , MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void comboBoxMelodie_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

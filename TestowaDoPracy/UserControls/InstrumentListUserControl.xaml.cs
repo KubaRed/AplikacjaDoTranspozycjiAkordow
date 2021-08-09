@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestowaDoPracy.Klasy;
 
 namespace TestowaDoPracy.UserControls
 {
@@ -24,6 +25,11 @@ namespace TestowaDoPracy.UserControls
         {
             InitializeComponent();
             MainGrid.Background.Opacity = 0;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddToDataBase.AddInstrumentToDb(TextBoxInstrumentName.Text, TextBoxKey.Text);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace TestowaDoPracy.UserControls
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            SongListDb.InsertSongIntoDb(TextBoxTitle.Text, TextBoxNotes.Text);
+            AddToDataBase.AddSongIntoDb(TextBoxTitle.Text, TextBoxNotes.Text);
         }
 
 

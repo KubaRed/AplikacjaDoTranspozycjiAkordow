@@ -75,13 +75,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Klasy\AddToDataBase.cs" />
     <Compile Include="Klasy\CheckRadioButton.cs" />
     <Compile Include="Klasy\Combobox.cs" />
     <Compile Include="Klasy\NoteTransposition.cs" />
     <Compile Include="Klasy\LocalSQLServerConnection.cs" />
     <Compile Include="Klasy\ReadFromFile.cs" />
     <Compile Include="Klasy\SaveToFile.cs" />
-    <Compile Include="Klasy\SongListDb.cs" />
     <Compile Include="Klasy\User.cs" />
     <Compile Include="Klasy\RegularExpresions.cs" />
     <Compile Include="MenuGlowne.xaml.cs">

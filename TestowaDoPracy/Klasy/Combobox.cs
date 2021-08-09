@@ -19,7 +19,7 @@ namespace TestowaDoPracy.Klasy
             {
                 LocalSQLServerConnection.OpenConnection();
 
-                LocalSQLServerConnection.sql = "SELECT * FROM Songs";
+                LocalSQLServerConnection.sql = "SELECT * FROM Songs Where UserID=" + User.UserID;
                 LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
                 LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
                 LocalSQLServerConnection.rd = LocalSQLServerConnection.cmd.ExecuteReader();

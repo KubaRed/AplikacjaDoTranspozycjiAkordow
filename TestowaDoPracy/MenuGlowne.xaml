@@ -57,14 +57,14 @@
                             <TextBlock Text="Tranpozycja Akordów" VerticalAlignment="Center" Margin="10, 10" />
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="DodajUtworow" Height="60" FontFamily="Impact" FontSize="18" Foreground="#DDFFFFFF" Background="#FF673AB7">
+                    <ListViewItem x:Name="DodajUtwor" Height="60" FontFamily="Impact" FontSize="18" Foreground="#DDFFFFFF" Background="#FF673AB7">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Dodaj Utworów" VerticalAlignment="Center" Margin="35, 10" />
+                            <TextBlock Text="Dodaj Utwór" VerticalAlignment="Center" Margin="39,10" />
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ListaInstrumentow" Height="60" FontFamily="Impact" FontSize="18" Foreground="#DDFFFFFF" Background="#FF673AB7">
+                    <ListViewItem x:Name="DodajInstrument" Height="60" FontFamily="Impact" FontSize="18" Foreground="#DDFFFFFF" Background="#FF673AB7">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Lista Instrumentów" VerticalAlignment="Center" Margin="19, 10" />
+                            <TextBlock Text="Dodaj Instrument" VerticalAlignment="Center" Margin="23, 10" />
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
