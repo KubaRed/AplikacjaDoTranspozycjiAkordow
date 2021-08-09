@@ -27,8 +27,13 @@ namespace TestowaDoPracy.Klasy
 
                 while (LocalSQLServerConnection.rd.Read())
                 {
-                    string title = LocalSQLServerConnection.rd.GetString(2);
-                    combobox.Items.Add(title);
+                    Melody melody= new Melody
+                    {
+                        ID = LocalSQLServerConnection.rd.GetInt32(0),
+                        Title = LocalSQLServerConnection.rd.GetString(2),
+                        Notes = LocalSQLServerConnection.rd.GetString(3)
+                    };
+                    combobox.Items.Add(melody);
                 }
             
 
@@ -57,12 +62,12 @@ namespace TestowaDoPracy.Klasy
 
                 while (LocalSQLServerConnection.rd.Read())
                 {
-                    Instrument instrument = new Instrument();
-                    instrument.ID = LocalSQLServerConnection.rd.GetInt32(0);
-                    instrument.Name = LocalSQLServerConnection.rd.GetString(2);
-                    instrument.Key = LocalSQLServerConnection.rd.GetString(3);
-
-                    string name = LocalSQLServerConnection.rd.GetString(2);
+                    Instrument instrument = new Instrument
+                    {
+                        ID = LocalSQLServerConnection.rd.GetInt32(0),
+                        Name = LocalSQLServerConnection.rd.GetString(2),
+                        Key = LocalSQLServerConnection.rd.GetString(3)
+                    };
                     combobox.Items.Add(instrument);
                 }
 
