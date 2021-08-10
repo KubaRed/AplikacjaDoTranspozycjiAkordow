@@ -31,5 +31,10 @@ namespace TestowaDoPracy.UserControls
         {
             AddToDataBase.AddInstrumentToDb(TextBoxInstrumentName.Text, TextBoxKey.Text);
         }
+
+        private void Button_Click_Usun(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

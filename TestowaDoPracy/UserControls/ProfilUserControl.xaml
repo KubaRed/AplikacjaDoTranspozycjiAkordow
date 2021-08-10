@@ -46,7 +46,7 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="290,20,290,0" Height="150">
                 <Button  x:Name="PasswordChangeButton" Content="Zmień hasło" HorizontalAlignment="Center" Height="80" Margin="0,0,0,0" Width="250" FontFamily="Impact" FontSize="20" Click="PasswordChangeButton_Click"/>
-                <Button Content="?" HorizontalAlignment="Center" Height="80" Margin="40,0,0,0" Width="250" FontFamily="Impact" FontSize="20"/>
+                <Button Content="Usuń użytkownika" HorizontalAlignment="Center" Height="80" Margin="40,0,0,0" Width="250" FontFamily="Impact" FontSize="20" Click="Button_Click"/>
             </StackPanel>
 
         </StackPanel>

@@ -51,7 +51,6 @@ namespace TestowaDoPracy
             {
                 case "TranspozycjaAkordow":
                     GridControls.Children.Add(chord);
-
                     break;
                 case "DodajUtwor":
                     GridControls.Children.Add(songList);
@@ -81,6 +80,7 @@ namespace TestowaDoPracy
         {
             GridControls.Children.Clear();
             GridControls.Children.Add(profil);
+            
         }
     }
 }

@@ -12,7 +12,7 @@
         <Rectangle Visibility="Hidden" HorizontalAlignment="Left" Height="94" Margin="754,160,0,0" VerticalAlignment="Top" Width="392" Fill="#FF673AB7" RadiusY="5" RadiusX="5" RenderTransformOrigin="0.498,-0.346"/>
 
         <StackPanel Margin="40">
-            <Label Content ="Lista Instrumentów" FontFamily="Impact" FontSize="32" Margin="0,5" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <Label Content ="Dodaj Instrumentów" FontFamily="Impact" FontSize="32" Margin="0,5" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#FF211C1C" Margin="10,0,0,0" FontSize="18">
                 <Run Text="Podaj nazwę instrumentu oraz jego strój."/>
@@ -41,8 +41,8 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="290,150,290,0" Height="150">
 
-                <Button Content="Dodaj utwór" HorizontalAlignment="Center" Height="80" Margin="0,0,0,0" Width="220" FontFamily="Impact" FontSize="20" Click="Button_Click" />
-                <Button Content="Usuń utwór" HorizontalAlignment="Center" Height="80" Margin="100,0,0,0" Width="220" FontFamily="Impact" FontSize="20" />
+                <Button Content="Dodaj instrument" HorizontalAlignment="Center" Height="80" Margin="0,0,0,0" Width="220" FontFamily="Impact" FontSize="20" Click="Button_Click" />
+                <Button Content="Usuń instrument" HorizontalAlignment="Center" Height="80" Margin="100,0,0,0" Width="220" FontFamily="Impact" FontSize="20" Click="Button_Click_Usun" />
             </StackPanel>
 
         </StackPanel>
