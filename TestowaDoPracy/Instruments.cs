@@ -17,6 +17,7 @@ namespace AplikacjaDoTranspozycji
     {
         [Key]
         public int InstrumentID { get; set; }
+
         public Nullable<int> UserID { get; set; }
         public string InstrumentName { get; set; }
         public string InstrumentKey { get; set; }

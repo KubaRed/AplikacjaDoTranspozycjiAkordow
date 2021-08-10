@@ -24,7 +24,6 @@ namespace AplikacjaDoTranspozycji.UserControls
     /// </summary>
     public partial class InstrumentListUserControl : UserControl
     {
-        private InstrumentContext instrumentContext = new InstrumentContext();
         public InstrumentListUserControl()
         {
             InitializeComponent();
@@ -62,9 +61,6 @@ namespace AplikacjaDoTranspozycji.UserControls
             // 	myCollectionViewSource.Source = your data
             // }
 
-            CollectionViewSource instrumentsViewSource = (CollectionViewSource)(this.FindResource("instrumentsViewSource"));
-            instrumentContext.Instrument.Load();
-            instrumentsViewSource.Source = instrumentContext.Instrument.Local;
         }
     }
 }

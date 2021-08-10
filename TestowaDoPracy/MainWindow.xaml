@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AplikacjaDoTranspozycji"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Login" Height="400" Width="600" ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" MouseDown="Window_MouseDown">
+        Title="Login" Height="400" Width="600" ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" MouseDown="Window_MouseDown" Loaded="Window_Loaded">
     <Grid>
         <Rectangle RadiusY="16" RadiusX="16" Fill="White" />
         <Image Source="Resources/tlo.jpeg" Margin="310,0,0,0" Stretch="UniformToFill"/>
@@ -40,7 +40,7 @@
             </TextBlock>
             <Grid Margin="0,-10,0,0">
                 <CheckBox x:Name="RememberCheckBox" Content="Zapamiętaj mnie" Margin="5, 10" Cursor="Hand"/>
-                <Label Content="Zapomniałem hasła." HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10,20" Cursor="Hand"/>
+                <Label Content="Zapomniałem hasła." HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10,20" Cursor="Hand" Visibility="Hidden"/>
             </Grid>
             <Button x:Name="LogZalogujButton" HorizontalAlignment="Center" Content="Zaloguj" FontFamily="Impact" FontSize="18" Width="100" Margin="30" Click="LogZalogujButton_Click"/>
 

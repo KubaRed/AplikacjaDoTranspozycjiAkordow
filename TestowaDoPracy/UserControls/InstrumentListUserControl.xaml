@@ -33,7 +33,7 @@
                 <CheckBox x:Name="checkBoxAddMelody" Content="Dodaj dźwieki melodii" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxAddMelody_Checked" />
                 <CheckBox x:Name="checkBoxAddChordSong" Content="Dodaj akordy utworu" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxAddChordSong_Checked"/>
                 <TextBlock Text="Wybierz pozycję do usunięcia" FontSize="20" FontFamily="Impact" Foreground="White" Margin="50,20,0,0"/>
-                <ComboBox x:Name="comboBoxInstrument" Width="360" Margin="0,20,0,0" FontSize="20 " Background="White" FontFamily="Impact" SelectedValue="{Binding Title}" SelectedValuePath="InstrumentID" ItemsSource="{Binding}"/>
+                <ComboBox x:Name="comboBoxInstrument" Width="360" Margin="0,20,0,0" FontSize="20 " Background="White" FontFamily="Impact" SelectedValue="{Binding Name}" SelectedValuePath="InstrumentID" ItemsSource="{Binding}" DisplayMemberPath="InstrumentName" />
             </StackPanel>
 
             <StackPanel Margin="0,-20,0,0" Orientation="Horizontal">

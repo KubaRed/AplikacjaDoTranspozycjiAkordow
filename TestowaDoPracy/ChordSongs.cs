@@ -17,6 +17,7 @@ namespace AplikacjaDoTranspozycji
     {
         [Key]
         public int ChordID { get; set; }
+
         public Nullable<int> UserID { get; set; }
         public string Title { get; set; }
         public string Chord { get; set; }

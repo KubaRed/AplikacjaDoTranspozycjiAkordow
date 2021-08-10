@@ -9,7 +9,7 @@ namespace AplikacjaDoTranspozycji.Klasy
 {
     public class Instrument
     {
-        [Key]
+        
         public int ID { get; set; }
         public string Name { get; set; }
         public string Key { get; set; }

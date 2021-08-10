@@ -25,6 +25,7 @@ namespace AplikacjaDoTranspozycji
         readonly UserControl sound = new UserControls.TranspozycjaDzwiekowUserControl();
         readonly UserControl profil = new UserControls.ProfilUserControl();
         readonly UserControl instrument = new UserControls.InstrumentListUserControl();
+        readonly UserControl test = new UserControls.Test();
 
 
         public MenuGlowne()
@@ -61,6 +62,9 @@ namespace AplikacjaDoTranspozycji
                 case "TranspozycjaDzwiekow":
                     GridControls.Children.Add(sound);
                         break;
+                case "Test":
+                    GridControls.Children.Add(test);
+                    break;
                 default:
                     GridControls.Children.Add(sound);
                     break;
@@ -73,7 +77,7 @@ namespace AplikacjaDoTranspozycji
             main.Show();
             this.Close();
 
-            User.ClearTempData();
+            //User.ClearTempData();
         }
 
         private void ProfilButton_Click(object sender, RoutedEventArgs e)
