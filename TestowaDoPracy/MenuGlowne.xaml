@@ -67,11 +67,7 @@
                             <TextBlock Text="Dodaj Instrument" VerticalAlignment="Center" Margin="23, 10" />
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="Test" Height="60" FontFamily="Impact" FontSize="18" Foreground="#DDFFFFFF" Background="#FF673AB7">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Test" VerticalAlignment="Center" Margin="23, 10" />
-                        </StackPanel>
-                    </ListViewItem>
+                    
                 </ListView>
             </StackPanel>
         </Grid>

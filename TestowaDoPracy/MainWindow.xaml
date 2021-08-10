@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AplikacjaDoTranspozycji"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Login" Height="400" Width="600" ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" MouseDown="Window_MouseDown" Loaded="Window_Loaded">
+        Title="Login" Height="400" Width="600" ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" MouseDown="Window_MouseDown">
     <Grid>
         <Rectangle RadiusY="16" RadiusX="16" Fill="White" />
         <Image Source="Resources/tlo.jpeg" Margin="310,0,0,0" Stretch="UniformToFill"/>
