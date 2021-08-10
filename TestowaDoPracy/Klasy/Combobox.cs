@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 using System.Windows.Controls;
 using System.Data.Entity.ModelConfiguration.Configuration;
 
-namespace TestowaDoPracy.Klasy
+namespace AplikacjaDoTranspozycji.Klasy
 {
     class Combobox
     {

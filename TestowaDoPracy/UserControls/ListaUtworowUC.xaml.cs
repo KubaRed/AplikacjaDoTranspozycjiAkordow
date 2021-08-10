@@ -12,9 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TestowaDoPracy.Klasy;
+using AplikacjaDoTranspozycji.Klasy;
 
-namespace TestowaDoPracy.UserControls
+namespace AplikacjaDoTranspozycji.UserControls
 {
     /// <summary>
     /// Logika interakcji dla klasy ListaUtworowUC.xaml
@@ -56,5 +56,6 @@ namespace TestowaDoPracy.UserControls
         {
 
         }
+
     }
 }

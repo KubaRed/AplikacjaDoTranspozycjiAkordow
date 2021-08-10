@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TestowaDoPracy.Properties
+namespace AplikacjaDoTranspozycji.Properties
 {
 
 
