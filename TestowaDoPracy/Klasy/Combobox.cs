@@ -47,6 +47,40 @@ namespace TestowaDoPracy.Klasy
             }
 
         }
+        public static void FillComboboxChordSong(ComboBox combobox)
+        {
+
+            try
+            {
+                LocalSQLServerConnection.OpenConnection();
+
+                LocalSQLServerConnection.sql = "SELECT * FROM ChordSongs Where UserID=" + User.UserID;
+                LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
+                LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
+                LocalSQLServerConnection.rd = LocalSQLServerConnection.cmd.ExecuteReader();
+
+                while (LocalSQLServerConnection.rd.Read())
+                {
+                    ChordSong chord = new ChordSong
+                    {
+                        ID = LocalSQLServerConnection.rd.GetInt32(0),
+                        Title = LocalSQLServerConnection.rd.GetString(2),
+                        Chord = LocalSQLServerConnection.rd.GetString(3)
+                    };
+                    combobox.Items.Add(chord);
+                }
+
+
+                LocalSQLServerConnection.CloseConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd przy dodawaniu utworu!"
+                            + Environment.NewLine + "opis: " + ex.Message.ToString(), "ComboBox"
+                            , MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
 
         public static void FillComboboxInstrument(ComboBox combobox)
         {

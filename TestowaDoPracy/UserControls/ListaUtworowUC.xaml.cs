@@ -25,13 +25,36 @@ namespace TestowaDoPracy.UserControls
         {           
             InitializeComponent();
             MainGrid.Background.Opacity = 0;
+
+            Combobox.FillComboboxMelody(comboBoxChordSong);
         }
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddToDataBase.AddSongIntoDb(TextBoxTitle.Text, TextBoxNotes.Text);
+            if (checkBoxAddMelody.IsChecked == true)
+            {
+                AddToDataBase.AddMelodyIntoDb(TextBoxTitle.Text, TextBoxNotes.Text);
+            }
+            else if (checkBoxAddChordSong.IsChecked == true)
+            {
+                AddToDataBase.AddChordSongIntoDb(TextBoxTitle.Text, TextBoxNotes.Text);
+            }
+            else { MessageBox.Show("Wybierz czy chcesz dodać melodię lub akordy utworu!", "Dodaj utwór", MessageBoxButton.OK, MessageBoxImage.Information); }
         }
 
+        private void CheckBoxAddMelody_Checked(object sender, RoutedEventArgs e)
+        {
+            checkBoxAddChordSong.IsChecked = false;
+        }
 
+        private void CheckBoxAddChordSong_Checked(object sender, RoutedEventArgs e)
+        {
+            checkBoxAddMelody.IsChecked = false;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

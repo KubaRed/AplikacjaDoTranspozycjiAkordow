@@ -35,11 +35,6 @@ namespace TestowaDoPracy.UserControls
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void PasswordChangeButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -81,6 +76,11 @@ namespace TestowaDoPracy.UserControls
                 MessageBox.Show("Hasło nie zostało zmienione. Sprawdź poprawność wpisanego starego hasła.", "Profil"
                                   , MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
