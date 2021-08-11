@@ -43,7 +43,7 @@ namespace AplikacjaDoTranspozycji.UserControls
         private void CheckBoxAddMelody_Checked(object sender, RoutedEventArgs e)
         {
             checkBoxAddChordSong.IsChecked = false;
-            Combobox.FillComboboxMelody(comboBoxChordSong);
+            Combobox.FillComboboxMelody(comboBoxChordSong, TemporaryData.UserID);
         }
 
         private void CheckBoxAddChordSong_Checked(object sender, RoutedEventArgs e)

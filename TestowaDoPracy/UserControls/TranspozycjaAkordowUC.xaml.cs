@@ -31,7 +31,7 @@ namespace AplikacjaDoTranspozycji.UserControls
             stackPanelStrojWynik.Visibility = Visibility.Hidden;
             MainGrid.Background.Opacity = 0;
 
-            Combobox.FillComboboxChordSong(comboBoxChordSong);
+           
 
 
             this.comboBoxChordSong.SelectionChanged += new SelectionChangedEventHandler(OnMyComboBoxChanged);
@@ -40,9 +40,7 @@ namespace AplikacjaDoTranspozycji.UserControls
 
         private void OnMyComboBoxChanged(object sender, SelectionChangedEventArgs e)
         {
-            ChordSong chord = comboBoxChordSong.SelectedItem as ChordSong;
-
-            TextBoxBefore.Text = chord.Chord;
+            TextBoxBefore.Text = comboBoxChordSong.SelectedValue.ToString();
         }
 
         private void CheckBoxInstrument_Checked(object sender, RoutedEventArgs e)
@@ -116,6 +114,7 @@ namespace AplikacjaDoTranspozycji.UserControls
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            Combobox.FillComboboxChordSong(comboBoxChordSong);
             Combobox.FillComboBoxInstrument(comboBoxInstrument);
             Combobox.FillComboBoxInstrument(comboBoxInstrumentWynik);
         }

@@ -149,18 +149,18 @@ namespace AplikacjaDoTranspozycji.Klasy
             }
         }
 
-        public static void DeleteUserFromDb(string login, int userID, MenuGlowne menu)
+        public static void DeleteUserFromDb(string login, Window menu)
         {
             try
             {
                 using (APlikacjaDoTranspozycjiEntities db = new APlikacjaDoTranspozycjiEntities())
                 {
-                    var result = db.Users.FirstOrDefault(r => r.Login == login && r.UserID == userID);
+                    var result = db.Users.FirstOrDefault(r => r.Login == login);
                     if (result != null)
                         db.Users.Remove(result);
                     db.SaveChanges();
 
-                    MessageBox.Show("Konto użytkownika"+ login +" zostało pomyślnie usunięte.", "Usuń użytkownika", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Konto użytkownika "+ login +" zostało pomyślnie usunięte.", "Usuń użytkownika", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     MainWindow main = new MainWindow();
                     main.Show();

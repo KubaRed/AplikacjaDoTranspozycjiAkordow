@@ -29,15 +29,16 @@ namespace AplikacjaDoTranspozycji.Klasy
                 MessageBox.Show(ex.Message, "Message", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        public static void FillComboboxMelody(ComboBox combobox)
+        public static void FillComboboxMelody(ComboBox combobox, int userId)
         {
 
             try
             {
                 using (APlikacjaDoTranspozycjiEntities db = new APlikacjaDoTranspozycjiEntities())
                 {
-                    combobox.ItemsSource = db.Songs.ToList();
-                    combobox.SelectedValuePath = "SongID";
+
+                    combobox.ItemsSource = db.Songs.Where(i => i.UserID == userId).ToList();
+                    combobox.SelectedValuePath = "Notes";
                     combobox.DisplayMemberPath = "Title";
                 }
 
@@ -78,7 +79,7 @@ namespace AplikacjaDoTranspozycji.Klasy
                 using (APlikacjaDoTranspozycjiEntities db = new APlikacjaDoTranspozycjiEntities())
                 {
                     combobox.ItemsSource = db.ChordSongs.ToList();
-                    combobox.SelectedValuePath = "ChordID";
+                    combobox.SelectedValuePath = "Chord";
                     combobox.DisplayMemberPath = "Title";
                 }
 

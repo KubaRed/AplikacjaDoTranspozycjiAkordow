@@ -34,7 +34,7 @@ namespace AplikacjaDoTranspozycji
             PreviewKeyDown += (s, e) => { if (e.Key == Key.Escape) Close(); }; //Wyłącza program
             GridControls.Children.Add(sound);
 
-            UserIdLabel.Text += User.Login;
+            
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -73,15 +73,17 @@ namespace AplikacjaDoTranspozycji
             MainWindow main = new MainWindow();
             main.Show();
             this.Close();
-
-            //User.ClearTempData();
         }
 
         private void ProfilButton_Click(object sender, RoutedEventArgs e)
         {
             GridControls.Children.Clear();
             GridControls.Children.Add(profil);
-            
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            UserIdLabel.Text += TemporaryData.Login;
         }
     }
 }

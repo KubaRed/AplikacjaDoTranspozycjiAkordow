@@ -45,9 +45,7 @@ namespace AplikacjaDoTranspozycji.UserControls
 
         private void OnMyComboBoxChanged(object sender, SelectionChangedEventArgs e)
         {
-            Melody melody = comboBoxMelodie.SelectedItem as Melody;
-
-            TextBoxBefore.Text = melody.Notes;
+            TextBoxBefore.Text = comboBoxMelodie.SelectedValue.ToString();
         }
 
         private void CheckBoxInstrument_Checked(object sender, RoutedEventArgs e)
@@ -121,7 +119,7 @@ namespace AplikacjaDoTranspozycji.UserControls
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            Combobox.FillComboboxMelody(comboBoxMelodie);
+            Combobox.FillComboboxMelody(comboBoxMelodie, TemporaryData.UserID);
             Combobox.FillComboBoxInstrument(comboBoxInstrument);
             Combobox.FillComboBoxInstrument(comboBoxInstrumentWynik);
         }
