@@ -32,8 +32,7 @@ namespace AplikacjaDoTranspozycji.UserControls
             MainGrid.Background.Opacity = 0;
 
             Combobox.FillComboboxChordSong(comboBoxChordSong);
-            Combobox.FillComboboxInstrument(comboBoxInstrument);
-            Combobox.FillComboboxInstrument(comboBoxInstrumentWynik);
+
 
             this.comboBoxChordSong.SelectionChanged += new SelectionChangedEventHandler(OnMyComboBoxChanged);
 
@@ -83,14 +82,16 @@ namespace AplikacjaDoTranspozycji.UserControls
             bool cbf = stackPanelStrojPoczatkowy.Children.OfType<RadioButton>().Any(r => r.IsChecked.Value);
             bool cbs = stackPanelStrojWynik.Children.OfType<RadioButton>().Any(r => r.IsChecked.Value);
 
-            Instrument instrument = comboBoxInstrument.SelectedItem as Instrument;
-            Instrument instrument2 = comboBoxInstrumentWynik.SelectedItem as Instrument;
+            Instruments instrument = comboBoxInstrument.SelectedItem as Instruments;
+            Instruments instrument2 = comboBoxInstrumentWynik.SelectedItem as Instruments;
 
+
+           
             try
             {
                 if (checkBoxInstrument.IsChecked == true && instrument != null && instrument2 != null)
                 {
-                    TextBoxAfter.Text = ChordTransposition.TranspositionFromChord(TextBoxBefore.Text, CheckSelectedInstruments.CheckKeyOfSelectedInstruments(instrument.Key, instrument2.Key));
+                    TextBoxAfter.Text = ChordTransposition.TranspositionFromChord(TextBoxBefore.Text, CheckSelectedInstruments.CheckKeyOfSelectedInstruments(instrument.InstrumentKey, instrument2.InstrumentKey));
 
                 }
                 else if (checkBoxStroj.IsChecked == true && cbf == true && cbs == true)
@@ -111,6 +112,12 @@ namespace AplikacjaDoTranspozycji.UserControls
         {
             ChordSong chord = comboBoxChordSong.SelectedItem as ChordSong;
             TextBoxBefore.Text = chord.Chord;
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Combobox.FillComboBoxInstrument(comboBoxInstrument);
+            Combobox.FillComboBoxInstrument(comboBoxInstrumentWynik);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -53,14 +54,9 @@ namespace AplikacjaDoTranspozycji.UserControls
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
 
-            // Nie ładuj danych w czasie projektowania.
-            // if (!System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
-            // {
-            // 	//Tu załaduj swoje dane i przypisz wynik do CollectionViewSource.
-            // 	System.Windows.Data.CollectionViewSource myCollectionViewSource = (System.Windows.Data.CollectionViewSource)this.Resources["Resource Key for CollectionViewSource"];
-            // 	myCollectionViewSource.Source = your data
-            // }
-
+            Combobox.FillComboBoxInstrument(comboBoxInstrument);
+        
         }
-    }
+
+    } 
 }

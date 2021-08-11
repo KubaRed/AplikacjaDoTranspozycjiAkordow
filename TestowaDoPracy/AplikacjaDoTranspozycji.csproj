@@ -112,8 +112,8 @@
     <Compile Include="Klasy\ReadFromFile.cs" />
     <Compile Include="Klasy\SaveToFile.cs" />
     <Compile Include="Klasy\UpdateInDataBase.cs" />
-    <Compile Include="Klasy\User.cs" />
     <Compile Include="Klasy\RegularExpresions.cs" />
+    <Compile Include="Klasy\User.cs" />
     <Compile Include="MenuGlowne.xaml.cs">
       <DependentUpon>MenuGlowne.xaml</DependentUpon>
     </Compile>

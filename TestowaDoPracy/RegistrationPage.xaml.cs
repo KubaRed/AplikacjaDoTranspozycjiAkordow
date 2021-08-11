@@ -56,10 +56,6 @@ namespace AplikacjaDoTranspozycji
             registration = this;
 
             AddToDataBase.AddUserToDataBase(login, password, password2, email, registration);
-
-
-            
-
             
         }
 

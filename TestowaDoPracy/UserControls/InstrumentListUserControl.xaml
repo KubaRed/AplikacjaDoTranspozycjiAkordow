@@ -8,10 +8,8 @@
              xmlns:AplikacjaDoTranspozycji="clr-namespace:AplikacjaDoTranspozycji"
              mc:Ignorable="d"
              d:DesignHeight="640" d:DesignWidth="1200" Loaded="UserControl_Loaded">
-    <UserControl.Resources>
-        <CollectionViewSource x:Key="instrumentsViewSource" d:DesignSource="{d:DesignInstance {x:Type AplikacjaDoTranspozycji:Instruments}, CreateList=True}"/>
-    </UserControl.Resources>
-    <Grid x:Name="MainGrid" Background="#FFC1BBBB">
+    
+    <Grid x:Name="MainGrid" Background="#FFC1BBBB" >
 
 
         <Rectangle HorizontalAlignment="Left" Height="225" Margin="754,168,0,0" VerticalAlignment="Top" Width="392" Fill="#FF673AB7" RadiusY="5" RadiusX="5"/>
@@ -33,7 +31,7 @@
                 <CheckBox Visibility="Hidden" x:Name="checkBoxAddMelody" Content="Dodaj dźwieki melodii" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxAddMelody_Checked" />
                 <CheckBox Visibility="Hidden" x:Name="checkBoxAddChordSong" Content="Dodaj akordy utworu" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxAddChordSong_Checked"/>
                 <TextBlock Text="Wybierz pozycję do usunięcia" FontSize="20" FontFamily="Impact" Foreground="White" Margin="50,20,0,0"/>
-                <ComboBox x:Name="comboBoxInstrument" Width="360" Margin="0,20,0,0" FontSize="20 " Background="White" FontFamily="Impact"  SelectedValuePath="InstrumentID"  DisplayMemberPath="Name" />
+                <ComboBox x:Name="comboBoxInstrument" Width="360" Margin="0,20,0,0" FontSize="20 " Background="White" FontFamily="Impact"   />
             </StackPanel>
 
             <StackPanel Margin="0,-20,0,0" Orientation="Horizontal">
@@ -48,6 +46,7 @@
                 <Button Content="Dodaj instrument" HorizontalAlignment="Center" Height="80" Margin="0,0,0,0" Width="220" FontFamily="Impact" FontSize="20" Click="Button_Click" />
                 <Button Content="Usuń instrument" HorizontalAlignment="Center" Height="80" Margin="100,0,0,0" Width="220" FontFamily="Impact" FontSize="20" Click="Button_Click_Usun" />
             </StackPanel>
+           
 
         </StackPanel>
     </Grid>

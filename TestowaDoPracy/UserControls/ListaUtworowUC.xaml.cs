@@ -25,8 +25,6 @@ namespace AplikacjaDoTranspozycji.UserControls
         {           
             InitializeComponent();
             MainGrid.Background.Opacity = 0;
-
-            Combobox.FillComboboxMelody(comboBoxChordSong);
         }
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
@@ -45,11 +43,13 @@ namespace AplikacjaDoTranspozycji.UserControls
         private void CheckBoxAddMelody_Checked(object sender, RoutedEventArgs e)
         {
             checkBoxAddChordSong.IsChecked = false;
+            Combobox.FillComboboxMelody(comboBoxChordSong);
         }
 
         private void CheckBoxAddChordSong_Checked(object sender, RoutedEventArgs e)
         {
             checkBoxAddMelody.IsChecked = false;
+            Combobox.FillComboboxChordSong(comboBoxChordSong);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -57,5 +57,9 @@ namespace AplikacjaDoTranspozycji.UserControls
 
         }
 
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

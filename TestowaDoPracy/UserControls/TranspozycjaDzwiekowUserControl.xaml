@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:AplikacjaDoTranspozycji.UserControls"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="640" d:DesignWidth="1200">
+             d:DesignHeight="640" d:DesignWidth="1200" Loaded="UserControl_Loaded">
     <Grid x:Name="MainGrid" Background="#FF878686">
 
         <Rectangle HorizontalAlignment="Left" Height="225" Margin="754,168,0,0" VerticalAlignment="Top" Width="392" Fill="#FF673AB7" RadiusY="5" RadiusX="5"/>
