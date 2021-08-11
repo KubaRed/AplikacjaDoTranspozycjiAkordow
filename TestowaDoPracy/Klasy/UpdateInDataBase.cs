@@ -10,16 +10,22 @@ namespace AplikacjaDoTranspozycji.Klasy
 {
     class UpdateInDataBase
     {
-        public static void UpdatePasswordInDataBase(string pass)
+        public static void UpdatePasswordInDataBase(string pass, string newPass)
         {
             try
             {
                 using (APlikacjaDoTranspozycjiEntities db = new APlikacjaDoTranspozycjiEntities())
                 {
-                    Users user = new Users()
+                    var result = db.Users.SingleOrDefault(r => r.Password == pass);
+                    if (result != null && pass != newPass && newPass.Length > 7)
                     {
-                        Password = pass,
-                    };
+                        result.Password = newPass;
+                        db.SaveChanges();
+
+                        MessageBox.Show("Hasło dla użytkownika " + result.Login + " zostało zmienione.", "Zmiana hasła", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else { MessageBox.Show("Podane hasła są takie same lub nowe jest zbyt krótkie (min. 8 znaków).", "Zmiana hasła", MessageBoxButton.OK, MessageBoxImage.Information); }
+
 
                     
                 }
