@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="APlikacjaDoTranspozycjiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ChordSongs">
+          <Key>
+            <PropertyRef Name="ChordID" />
+          </Key>
+          <Property Name="ChordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Title" Type="varchar(max)" Nullable="false" />
+          <Property Name="Chord" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Instruments">
+          <Key>
+            <PropertyRef Name="InstrumentID" />
+          </Key>
+          <Property Name="InstrumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="InstrumentName" Type="varchar(max)" Nullable="false" />
+          <Property Name="InstrumentKey" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Songs">
+          <Key>
+            <PropertyRef Name="SongID" />
+          </Key>
+          <Property Name="SongID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Notes" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__ChordSong__UserI__5441852A">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="ChordSongs" Type="Self.ChordSongs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ChordSongs">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Instrumen__UserI__5165187F">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Instruments" Type="Self.Instruments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Instruments">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Songs__UserID__44FF419A">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Songs" Type="Self.Songs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Songs">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="APlikacjaDoTranspozycjiModelStoreContainer">
+          <EntitySet Name="ChordSongs" EntityType="Self.ChordSongs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Instruments" EntityType="Self.Instruments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Songs" EntityType="Self.Songs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ChordSong__UserI__5441852A" Association="Self.FK__ChordSong__UserI__5441852A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ChordSongs" EntitySet="ChordSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Instrumen__UserI__5165187F" Association="Self.FK__Instrumen__UserI__5165187F">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Instruments" EntitySet="Instruments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Songs__UserID__44FF419A" Association="Self.FK__Songs__UserID__44FF419A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Songs" EntitySet="Songs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="APlikacjaDoTranspozycjiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ChordSongs">
+          <Key>
+            <PropertyRef Name="ChordID" />
+          </Key>
+          <Property Name="ChordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Chord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__ChordSong__UserI__5441852A" FromRole="ChordSongs" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Instruments">
+          <Key>
+            <PropertyRef Name="InstrumentID" />
+          </Key>
+          <Property Name="InstrumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="InstrumentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InstrumentKey" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Instrumen__UserI__5165187F" FromRole="Instruments" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Songs">
+          <Key>
+            <PropertyRef Name="SongID" />
+          </Key>
+          <Property Name="SongID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Songs__UserID__44FF419A" FromRole="Songs" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ChordSongs" Relationship="Self.FK__ChordSong__UserI__5441852A" FromRole="Users" ToRole="ChordSongs" />
+          <NavigationProperty Name="Instruments" Relationship="Self.FK__Instrumen__UserI__5165187F" FromRole="Users" ToRole="Instruments" />
+          <NavigationProperty Name="Songs" Relationship="Self.FK__Songs__UserID__44FF419A" FromRole="Users" ToRole="Songs" />
+        </EntityType>
+        <Association Name="FK__ChordSong__UserI__5441852A">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="ChordSongs" Type="Self.ChordSongs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ChordSongs">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Instrumen__UserI__5165187F">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Instruments" Type="Self.Instruments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Instruments">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Songs__UserID__44FF419A">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Songs" Type="Self.Songs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Songs">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="APlikacjaDoTranspozycjiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ChordSongs" EntityType="Self.ChordSongs" />
+          <EntitySet Name="Instruments" EntityType="Self.Instruments" />
+          <EntitySet Name="Songs" EntityType="Self.Songs" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK__ChordSong__UserI__5441852A" Association="Self.FK__ChordSong__UserI__5441852A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ChordSongs" EntitySet="ChordSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Instrumen__UserI__5165187F" Association="Self.FK__Instrumen__UserI__5165187F">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Instruments" EntitySet="Instruments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Songs__UserID__44FF419A" Association="Self.FK__Songs__UserID__44FF419A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Songs" EntitySet="Songs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="APlikacjaDoTranspozycjiModelStoreContainer" CdmEntityContainer="APlikacjaDoTranspozycjiEntities">
+          <EntitySetMapping Name="ChordSongs">
+            <EntityTypeMapping TypeName="APlikacjaDoTranspozycjiModel.ChordSongs">
+              <MappingFragment StoreEntitySet="ChordSongs">
+                <ScalarProperty Name="ChordID" ColumnName="ChordID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Chord" ColumnName="Chord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Instruments">
+            <EntityTypeMapping TypeName="APlikacjaDoTranspozycjiModel.Instruments">
+              <MappingFragment StoreEntitySet="Instruments">
+                <ScalarProperty Name="InstrumentID" ColumnName="InstrumentID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="InstrumentName" ColumnName="InstrumentName" />
+                <ScalarProperty Name="InstrumentKey" ColumnName="InstrumentKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Songs">
+            <EntityTypeMapping TypeName="APlikacjaDoTranspozycjiModel.Songs">
+              <MappingFragment StoreEntitySet="Songs">
+                <ScalarProperty Name="SongID" ColumnName="SongID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="APlikacjaDoTranspozycjiModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

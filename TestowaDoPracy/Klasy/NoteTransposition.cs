@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Input;
 using System.Runtime;
 
-namespace TestowaDoPracy.Klasy
+namespace AplikacjaDoTranspozycji.Klasy
 {
     class NoteTransposition
     {

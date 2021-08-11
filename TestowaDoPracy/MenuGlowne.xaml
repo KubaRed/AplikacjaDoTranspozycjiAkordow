@@ -1,9 +1,9 @@
-﻿<Window x:Class="TestowaDoPracy.MenuGlowne"
+﻿<Window x:Class="AplikacjaDoTranspozycji.MenuGlowne"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TestowaDoPracy"
+        xmlns:local="clr-namespace:AplikacjaDoTranspozycji"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="MenuGlowne" Height="700" Width="1400" ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" MouseDown="Window_MouseDown">
@@ -67,6 +67,7 @@
                             <TextBlock Text="Dodaj Instrument" VerticalAlignment="Center" Margin="23, 10" />
                         </StackPanel>
                     </ListViewItem>
+                    
                 </ListView>
             </StackPanel>
         </Grid>

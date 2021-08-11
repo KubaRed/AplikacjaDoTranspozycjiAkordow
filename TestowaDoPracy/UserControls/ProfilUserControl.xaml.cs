@@ -12,11 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TestowaDoPracy.Klasy;
+using AplikacjaDoTranspozycji.Klasy;
 using System.IO;
 using System.Data;
 
-namespace TestowaDoPracy.UserControls
+namespace AplikacjaDoTranspozycji.UserControls
 {
     /// <summary>
     /// Logika interakcji dla klasy ProfilUserControl.xaml

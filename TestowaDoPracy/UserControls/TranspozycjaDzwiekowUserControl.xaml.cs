@@ -13,14 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TestowaDoPracy.Klasy;
+using AplikacjaDoTranspozycji.Klasy;
 using System.Data;
 using System.Data.SqlClient;
 
 
 
 
-namespace TestowaDoPracy.UserControls
+namespace AplikacjaDoTranspozycji.UserControls
 {
     /// <summary>
     /// Logika interakcji dla klasy TranspozycjaDzwiekowUserControl.xaml
@@ -37,9 +37,8 @@ namespace TestowaDoPracy.UserControls
             stackPanelStrojWynik.Visibility = Visibility.Hidden;
             MainGrid.Background.Opacity = 0;
 
-            Combobox.FillComboboxMelody(comboBoxMelodie);
-            Combobox.FillComboboxInstrument(comboBoxInstrument);
-            Combobox.FillComboboxInstrument(comboBoxInstrumentWynik);
+           
+            
 
             this.comboBoxMelodie.SelectionChanged += new SelectionChangedEventHandler(OnMyComboBoxChanged);
         }
@@ -88,21 +87,22 @@ namespace TestowaDoPracy.UserControls
             bool cbf = stackPanelStrojPoczatkowy.Children.OfType<RadioButton>().Any(r => r.IsChecked.Value);
             bool cbs = stackPanelStrojWynik.Children.OfType<RadioButton>().Any(r => r.IsChecked.Value);
 
-            Instrument instrument = comboBoxInstrument.SelectedItem as Instrument;
-            Instrument instrument2 = comboBoxInstrumentWynik.SelectedItem as Instrument;
+        
+            Instruments instrument = comboBoxInstrument.SelectedItem as Instruments;
+            Instruments instrument2 = comboBoxInstrumentWynik.SelectedItem as Instruments;
 
             try
             {
                 if (checkBoxInstrument.IsChecked == true && instrument != null && instrument2 != null)
                 {
-                    TextBoxAfter.Text = NoteTransposition.TranspositionFromNote(TextBoxBefore.Text, CheckSelectedInstruments.CheckKeyOfSelectedInstruments(instrument.Key, instrument2.Key));
+                    TextBoxAfter.Text = NoteTransposition.TranspositionFromNote(TextBoxBefore.Text, CheckSelectedInstruments.CheckKeyOfSelectedInstruments(instrument.InstrumentKey, instrument2.InstrumentKey));
 
                 }
                 else if (checkBoxStroj.IsChecked == true && cbf == true && cbs == true)
                 {
                     TextBoxAfter.Text = NoteTransposition.TranspositionFromNote(TextBoxBefore.Text, CheckRadioButton.CheckRadioButtons(checkedButtonFirst.Name, checkedButtonSecond.Name));
                 }
-                else { MessageBox.Show("Nie wybrano stroju lub instrumentu względem którego ma być poddana transpozycja", "Transpozycja dźwięków",MessageBoxButton.OK, MessageBoxImage.Information); }
+                else { MessageBox.Show("Nie wybrano stroju lub instrumentu względem którego ma być poddana transpozycja", "Transpozycja dźwięków", MessageBoxButton.OK, MessageBoxImage.Information); }
             }
             catch (Exception ex)
             {
@@ -110,13 +110,20 @@ namespace TestowaDoPracy.UserControls
                                        + Environment.NewLine + "opis: " + ex.Message.ToString(), "Transpozycja Dźwięków."
                                        , MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        
         }
 
         private void Combobox_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             Melody melody = comboBoxMelodie.SelectedItem as Melody;
-
             TextBoxBefore.Text = melody.Notes;
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Combobox.FillComboboxMelody(comboBoxMelodie);
+            Combobox.FillComboBoxInstrument(comboBoxInstrument);
+            Combobox.FillComboBoxInstrument(comboBoxInstrumentWynik);
         }
     }
 }

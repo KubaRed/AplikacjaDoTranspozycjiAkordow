@@ -9,35 +9,58 @@ using System.Data.SqlClient;
 using System.Windows.Controls;
 using System.Data.Entity.ModelConfiguration.Configuration;
 
-namespace TestowaDoPracy.Klasy
+namespace AplikacjaDoTranspozycji.Klasy
 {
     class Combobox
     {
+        public static void FillComboBoxInstrument(ComboBox comboBox)
+        {
+            try
+            {
+                using (APlikacjaDoTranspozycjiEntities db = new APlikacjaDoTranspozycjiEntities())
+                {
+                    comboBox.ItemsSource = db.Instruments.ToList();
+                    comboBox.SelectedValuePath = "InstrumentID";
+                    comboBox.DisplayMemberPath = "InstrumentName";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         public static void FillComboboxMelody(ComboBox combobox)
         {
 
             try
             {
-                LocalSQLServerConnection.OpenConnection();
-
-                LocalSQLServerConnection.sql = "SELECT * FROM Songs Where UserID=" + User.UserID;
-                LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
-                LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
-                LocalSQLServerConnection.rd = LocalSQLServerConnection.cmd.ExecuteReader();
-
-                while (LocalSQLServerConnection.rd.Read())
+                using (APlikacjaDoTranspozycjiEntities db = new APlikacjaDoTranspozycjiEntities())
                 {
-                    Melody melody= new Melody
-                    {
-                        ID = LocalSQLServerConnection.rd.GetInt32(0),
-                        Title = LocalSQLServerConnection.rd.GetString(2),
-                        Notes = LocalSQLServerConnection.rd.GetString(3)
-                    };
-                    combobox.Items.Add(melody);
+                    combobox.ItemsSource = db.Songs.ToList();
+                    combobox.SelectedValuePath = "SongID";
+                    combobox.DisplayMemberPath = "Title";
                 }
+
+                //    LocalSQLServerConnection.OpenConnection();
+
+                //LocalSQLServerConnection.sql = "SELECT * FROM Songs Where UserID=" + User.UserID;
+                //LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
+                //LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
+                //LocalSQLServerConnection.rd = LocalSQLServerConnection.cmd.ExecuteReader();
+
+                //while (LocalSQLServerConnection.rd.Read())
+                //{
+                //    Melody melody= new Melody
+                //    {
+                //        ID = LocalSQLServerConnection.rd.GetInt32(0),
+                //        Title = LocalSQLServerConnection.rd.GetString(2),
+                //        Notes = LocalSQLServerConnection.rd.GetString(3)
+                //    };
+                //    combobox.Items.Add(melody);
+                //}
             
 
-                LocalSQLServerConnection.CloseConnection();
+                //LocalSQLServerConnection.CloseConnection();
             }
             catch (Exception ex) 
             {
@@ -52,26 +75,33 @@ namespace TestowaDoPracy.Klasy
 
             try
             {
-                LocalSQLServerConnection.OpenConnection();
-
-                LocalSQLServerConnection.sql = "SELECT * FROM ChordSongs Where UserID=" + User.UserID;
-                LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
-                LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
-                LocalSQLServerConnection.rd = LocalSQLServerConnection.cmd.ExecuteReader();
-
-                while (LocalSQLServerConnection.rd.Read())
+                using (APlikacjaDoTranspozycjiEntities db = new APlikacjaDoTranspozycjiEntities())
                 {
-                    ChordSong chord = new ChordSong
-                    {
-                        ID = LocalSQLServerConnection.rd.GetInt32(0),
-                        Title = LocalSQLServerConnection.rd.GetString(2),
-                        Chord = LocalSQLServerConnection.rd.GetString(3)
-                    };
-                    combobox.Items.Add(chord);
+                    combobox.ItemsSource = db.ChordSongs.ToList();
+                    combobox.SelectedValuePath = "ChordID";
+                    combobox.DisplayMemberPath = "Title";
                 }
 
+                //LocalSQLServerConnection.OpenConnection();
 
-                LocalSQLServerConnection.CloseConnection();
+                //LocalSQLServerConnection.sql = "SELECT * FROM ChordSongs Where UserID=" + User.UserID;
+                //LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
+                //LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
+                //LocalSQLServerConnection.rd = LocalSQLServerConnection.cmd.ExecuteReader();
+
+                //while (LocalSQLServerConnection.rd.Read())
+                //{
+                //    ChordSong chord = new ChordSong
+                //    {
+                //        ID = LocalSQLServerConnection.rd.GetInt32(0),
+                //        Title = LocalSQLServerConnection.rd.GetString(2),
+                //        Chord = LocalSQLServerConnection.rd.GetString(3)
+                //    };
+                //    combobox.Items.Add(chord);
+                //}
+
+
+                //LocalSQLServerConnection.CloseConnection();
             }
             catch (Exception ex)
             {
@@ -82,39 +112,39 @@ namespace TestowaDoPracy.Klasy
 
         }
 
-        public static void FillComboboxInstrument(ComboBox combobox)
-        {
+        //public static void FillComboboxInstrument(ComboBox combobox)
+        //{
 
-            try
-            {
-                LocalSQLServerConnection.OpenConnection();
+        //    try
+        //    {
+        //        LocalSQLServerConnection.OpenConnection();
 
-                LocalSQLServerConnection.sql = "SELECT * FROM Instruments Where UserID=" + User.UserID;
-                LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
-                LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
-                LocalSQLServerConnection.rd = LocalSQLServerConnection.cmd.ExecuteReader();
+        //        LocalSQLServerConnection.sql = "SELECT * FROM Instruments Where UserID=" + User.UserID;
+        //        LocalSQLServerConnection.cmd.CommandType = CommandType.Text;
+        //        LocalSQLServerConnection.cmd.CommandText = LocalSQLServerConnection.sql;
+        //        LocalSQLServerConnection.rd = LocalSQLServerConnection.cmd.ExecuteReader();
 
-                while (LocalSQLServerConnection.rd.Read())
-                {
-                    Instrument instrument = new Instrument
-                    {
-                        ID = LocalSQLServerConnection.rd.GetInt32(0),
-                        Name = LocalSQLServerConnection.rd.GetString(2),
-                        Key = LocalSQLServerConnection.rd.GetString(3)
-                    };
-                    combobox.Items.Add(instrument);
-                }
+        //        while (LocalSQLServerConnection.rd.Read())
+        //        {
+        //            Instrument instrument = new Instrument
+        //            {
+        //                ID = LocalSQLServerConnection.rd.GetInt32(0),
+        //                Name = LocalSQLServerConnection.rd.GetString(2),
+        //                Key = LocalSQLServerConnection.rd.GetString(3)
+        //            };
+        //            combobox.Items.Add(instrument);
+        //        }
 
 
-                LocalSQLServerConnection.CloseConnection();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Błąd przy dodawaniu utworu!"
-                            + Environment.NewLine + "opis: " + ex.Message.ToString(), "ComboBox"
-                            , MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+        //        LocalSQLServerConnection.CloseConnection();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Błąd przy dodawaniu utworu!"
+        //                    + Environment.NewLine + "opis: " + ex.Message.ToString(), "ComboBox"
+        //                    , MessageBoxButton.OK, MessageBoxImage.Error);
+        //    }
 
-        }
+        //}
     }
 }

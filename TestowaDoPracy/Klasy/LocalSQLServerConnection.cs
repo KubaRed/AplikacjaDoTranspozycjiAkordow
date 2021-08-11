@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestowaDoPracy.Klasy;
+using AplikacjaDoTranspozycji.Klasy;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
 
-namespace TestowaDoPracy.Klasy
+namespace AplikacjaDoTranspozycji.Klasy
 {
     class LocalSQLServerConnection
     {
@@ -27,6 +27,7 @@ namespace TestowaDoPracy.Klasy
         public static SqlDataReader rd;
         public static DataTable dt;
         public static SqlDataAdapter da;
+
 
 
         public static void OpenConnection()

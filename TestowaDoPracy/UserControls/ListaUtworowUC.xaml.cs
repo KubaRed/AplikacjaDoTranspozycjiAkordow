@@ -12,9 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TestowaDoPracy.Klasy;
+using AplikacjaDoTranspozycji.Klasy;
 
-namespace TestowaDoPracy.UserControls
+namespace AplikacjaDoTranspozycji.UserControls
 {
     /// <summary>
     /// Logika interakcji dla klasy ListaUtworowUC.xaml
@@ -25,8 +25,6 @@ namespace TestowaDoPracy.UserControls
         {           
             InitializeComponent();
             MainGrid.Background.Opacity = 0;
-
-            Combobox.FillComboboxMelody(comboBoxChordSong);
         }
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
@@ -45,14 +43,21 @@ namespace TestowaDoPracy.UserControls
         private void CheckBoxAddMelody_Checked(object sender, RoutedEventArgs e)
         {
             checkBoxAddChordSong.IsChecked = false;
+            Combobox.FillComboboxMelody(comboBoxChordSong);
         }
 
         private void CheckBoxAddChordSong_Checked(object sender, RoutedEventArgs e)
         {
             checkBoxAddMelody.IsChecked = false;
+            Combobox.FillComboboxChordSong(comboBoxChordSong);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
 
         }

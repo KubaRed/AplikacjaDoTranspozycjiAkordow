@@ -11,9 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using TestowaDoPracy.Klasy;
+using AplikacjaDoTranspozycji.Klasy;
 
-namespace TestowaDoPracy
+namespace AplikacjaDoTranspozycji
 {
     /// <summary>
     /// Logika interakcji dla klasy MenuGlowne.xaml
@@ -61,6 +61,7 @@ namespace TestowaDoPracy
                 case "TranspozycjaDzwiekow":
                     GridControls.Children.Add(sound);
                         break;
+
                 default:
                     GridControls.Children.Add(sound);
                     break;
@@ -73,7 +74,7 @@ namespace TestowaDoPracy
             main.Show();
             this.Close();
 
-            User.ClearTempData();
+            //User.ClearTempData();
         }
 
         private void ProfilButton_Click(object sender, RoutedEventArgs e)

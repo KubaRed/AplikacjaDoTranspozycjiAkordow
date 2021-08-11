@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,9 +16,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TestowaDoPracy.Klasy;
+using AplikacjaDoTranspozycji.Klasy;
 
-namespace TestowaDoPracy.UserControls
+namespace AplikacjaDoTranspozycji.UserControls
 {
     /// <summary>
     /// Logika interakcji dla klasy InstrumentListUserControl.xaml
@@ -36,5 +40,23 @@ namespace TestowaDoPracy.UserControls
         {
 
         }
-    }
+
+        private void CheckBoxAddMelody_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CheckBoxAddChordSong_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            Combobox.FillComboBoxInstrument(comboBoxInstrument);
+        
+        }
+
+    } 
 }

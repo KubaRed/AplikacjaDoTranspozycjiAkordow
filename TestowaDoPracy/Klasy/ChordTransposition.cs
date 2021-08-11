@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestowaDoPracy.Klasy
+namespace AplikacjaDoTranspozycji.Klasy
 {
     class ChordTransposition
     {
         
-        static string[] notes = new string[] { "C", "D", "E", "F", "G", "A", "H" };
+        readonly static string[] notes = new string[] { "C", "D", "E", "F", "G", "A", "H" };
 
         public static string TranspositionFromChord(string textToSplit, int key)
         {

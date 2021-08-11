@@ -1,49 +1,52 @@
-﻿<UserControl x:Class="TestowaDoPracy.UserControls.InstrumentListUserControl"
+﻿<UserControl x:Class="AplikacjaDoTranspozycji.UserControls.InstrumentListUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TestowaDoPracy.UserControls"
-             mc:Ignorable="d" 
+             xmlns:local="clr-namespace:AplikacjaDoTranspozycji.UserControls" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="640" d:DesignWidth="1200">
-    <Grid x:Name="MainGrid" Background="#FFC1BBBB">
+             xmlns:AplikacjaDoTranspozycji="clr-namespace:AplikacjaDoTranspozycji"
+             mc:Ignorable="d"
+             d:DesignHeight="640" d:DesignWidth="1200" Loaded="UserControl_Loaded">
+    
+    <Grid x:Name="MainGrid" Background="#FFC1BBBB" >
 
-        <Rectangle Visibility="Hidden" HorizontalAlignment="Left" Height="94" Margin="754,160,0,0" VerticalAlignment="Top" Width="392" Fill="#FF673AB7" RadiusY="5" RadiusX="5" RenderTransformOrigin="0.498,-0.346"/>
+
+        <Rectangle HorizontalAlignment="Left" Height="225" Margin="754,168,0,0" VerticalAlignment="Top" Width="392" Fill="#FF673AB7" RadiusY="5" RadiusX="5"/>
 
         <StackPanel Margin="40">
             <Label Content ="Dodaj Instrumentów" FontFamily="Impact" FontSize="32" Margin="0,5" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
-            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#FF211C1C" Margin="10,0,0,0" FontSize="18">
-                <Run Text="Podaj nazwę instrumentu oraz jego strój."/>
-            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#FF211C1C" Margin="10,0,0,0" FontSize="18"><Run Text="Podaj nazwę instrumentu oraz jego strój."/></TextBlock>
 
             <StackPanel Margin="0,40" Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="LetterT" Height="50" Width="50" VerticalAlignment="Center" Foreground="#FF171313"/>
-                <TextBox Name="TextBoxInstrumentName" materialDesign:HintAssist.Hint="Podaj nazwę instrumentu" Width="400" Margin="5"  FontSize="20"/>
+                <TextBox x:Name="TextBoxInstrumentName" materialDesign:HintAssist.Hint="Podaj nazwę instrumentu" Width="400" Margin="5"  FontSize="20"/>
             </StackPanel>
 
             <StackPanel x:Name="stackPanelStrojPoczatkowy"/>
 
-            <StackPanel Orientation="Vertical" Margin="700,-100,0,0" Visibility="Hidden">
+            <StackPanel Orientation="Vertical" Margin="700,-80,0,0" >
 
-                <CheckBox x:Name="checkBox" Content="Dodaj dźwięki utworu" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White"/>
-                <CheckBox x:Name="checkBoxStroj" Content="Dodaj akordy utworu" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White"/>
-
+                <CheckBox Visibility="Hidden" x:Name="checkBoxAddMelody" Content="Dodaj dźwieki melodii" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxAddMelody_Checked" />
+                <CheckBox Visibility="Hidden" x:Name="checkBoxAddChordSong" Content="Dodaj akordy utworu" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxAddChordSong_Checked"/>
+                <TextBlock Text="Wybierz pozycję do usunięcia" FontSize="20" FontFamily="Impact" Foreground="White" Margin="50,20,0,0"/>
+                <ComboBox x:Name="comboBoxInstrument" Width="360" Margin="0,20,0,0" FontSize="20 " Background="White" FontFamily="Impact"   />
             </StackPanel>
 
-            <StackPanel Margin="0,0" Orientation="Horizontal">
+            <StackPanel Margin="0,-20,0,0" Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Music" Height="50" Width="50" VerticalAlignment="Center" Foreground="#FF171313"/>
                 <TextBox x:Name="TextBoxKey" materialDesign:HintAssist.Hint="Wpisz strój instrumentu C, Es, F, Bb" Width="400" Margin="5"  FontSize="20"/>
             </StackPanel>
 
             <StackPanel x:Name="stackPanelStrojWynik"/>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="290,150,290,0" Height="150">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="290,110,290,0" Height="80">
 
                 <Button Content="Dodaj instrument" HorizontalAlignment="Center" Height="80" Margin="0,0,0,0" Width="220" FontFamily="Impact" FontSize="20" Click="Button_Click" />
                 <Button Content="Usuń instrument" HorizontalAlignment="Center" Height="80" Margin="100,0,0,0" Width="220" FontFamily="Impact" FontSize="20" Click="Button_Click_Usun" />
             </StackPanel>
+           
 
         </StackPanel>
     </Grid>
