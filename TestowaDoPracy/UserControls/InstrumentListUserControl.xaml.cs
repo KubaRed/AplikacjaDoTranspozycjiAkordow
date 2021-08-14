@@ -33,7 +33,7 @@ namespace AplikacjaDoTranspozycji.UserControls
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddToDataBase.AddInstrumentToDb(TextBoxInstrumentName.Text, TextBoxKey.Text);
+            AddToDataBase.AddInstrumentToDb(TextBoxInstrumentName.Text, TextBoxKey.Text, TemporaryData.UserID);
         }
 
         private void Button_Click_Usun(object sender, RoutedEventArgs e)
@@ -54,7 +54,7 @@ namespace AplikacjaDoTranspozycji.UserControls
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
 
-            Combobox.FillComboBoxInstrument(comboBoxInstrument);
+            Combobox.FillComboBoxInstrument(comboBoxInstrument, TemporaryData.UserID);
         
         }
 

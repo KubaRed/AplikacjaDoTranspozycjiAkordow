@@ -13,13 +13,13 @@ namespace AplikacjaDoTranspozycji.Klasy
 {
     class Combobox
     {
-        public static void FillComboBoxInstrument(ComboBox comboBox)
+        public static void FillComboBoxInstrument(ComboBox comboBox, int userId)
         {
             try
             {
                 using (APlikacjaDoTranspozycjiEntities db = new APlikacjaDoTranspozycjiEntities())
                 {
-                    comboBox.ItemsSource = db.Instruments.ToList();
+                    comboBox.ItemsSource = db.Instruments.Where(i => i.UserID == userId || i.UserID == 36).ToList();
                     comboBox.SelectedValuePath = "InstrumentID";
                     comboBox.DisplayMemberPath = "InstrumentName";
                 }
@@ -37,7 +37,7 @@ namespace AplikacjaDoTranspozycji.Klasy
                 using (APlikacjaDoTranspozycjiEntities db = new APlikacjaDoTranspozycjiEntities())
                 {
 
-                    combobox.ItemsSource = db.Songs.Where(i => i.UserID == userId).ToList();
+                    combobox.ItemsSource = db.Songs.Where(i => i.UserID == userId || i.UserID == 36).ToList();
                     combobox.SelectedValuePath = "Notes";
                     combobox.DisplayMemberPath = "Title";
                 }
@@ -71,14 +71,14 @@ namespace AplikacjaDoTranspozycji.Klasy
             }
 
         }
-        public static void FillComboboxChordSong(ComboBox combobox)
+        public static void FillComboboxChordSong(ComboBox combobox, int userId)
         {
 
             try
             {
                 using (APlikacjaDoTranspozycjiEntities db = new APlikacjaDoTranspozycjiEntities())
                 {
-                    combobox.ItemsSource = db.ChordSongs.ToList();
+                    combobox.ItemsSource = db.ChordSongs.Where(i => i.UserID == userId || i.UserID == 36).ToList();
                     combobox.SelectedValuePath = "Chord";
                     combobox.DisplayMemberPath = "Title";
                 }

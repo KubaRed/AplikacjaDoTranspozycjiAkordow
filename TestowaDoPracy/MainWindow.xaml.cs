@@ -43,7 +43,7 @@ namespace AplikacjaDoTranspozycji
 
         private void LogZalogujButton_Click(object sender, RoutedEventArgs e)
         {
-            if (LoginUser.Text == "admin" && LoginPass.Password.ToString() == "admin")
+            if (LoginUser.Text == "adminn" && LoginPass.Password.ToString() == "adminn")
             {
                 MenuGlowne menuGlowne = new MenuGlowne();
                 menuGlowne.Show();

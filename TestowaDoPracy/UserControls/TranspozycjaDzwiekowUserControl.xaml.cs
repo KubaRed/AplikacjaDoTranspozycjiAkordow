@@ -120,8 +120,8 @@ namespace AplikacjaDoTranspozycji.UserControls
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             Combobox.FillComboboxMelody(comboBoxMelodie, TemporaryData.UserID);
-            Combobox.FillComboBoxInstrument(comboBoxInstrument);
-            Combobox.FillComboBoxInstrument(comboBoxInstrumentWynik);
+            Combobox.FillComboBoxInstrument(comboBoxInstrument, TemporaryData.UserID);
+            Combobox.FillComboBoxInstrument(comboBoxInstrumentWynik, TemporaryData.UserID);
         }
     }
 }

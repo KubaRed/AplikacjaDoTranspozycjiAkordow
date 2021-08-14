@@ -114,9 +114,9 @@ namespace AplikacjaDoTranspozycji.UserControls
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            Combobox.FillComboboxChordSong(comboBoxChordSong);
-            Combobox.FillComboBoxInstrument(comboBoxInstrument);
-            Combobox.FillComboBoxInstrument(comboBoxInstrumentWynik);
+            Combobox.FillComboboxChordSong(comboBoxChordSong, TemporaryData.UserID);
+            Combobox.FillComboBoxInstrument(comboBoxInstrument, TemporaryData.UserID);
+            Combobox.FillComboBoxInstrument(comboBoxInstrumentWynik, TemporaryData.UserID);
         }
     }
 }
