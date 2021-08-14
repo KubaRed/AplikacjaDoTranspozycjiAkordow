@@ -7,19 +7,12 @@ using System.Threading.Tasks;
 
 namespace AplikacjaDoTranspozycji.Klasy
 {
-    public class User
+    public class TemporaryData
     {
-        public static string UserID { get; set; }
+        public static int UserID { get; set; }
         public static string Login { get; set; }
         public static string Password { get; set; }
         public static string Email { get; set; }
-        
-        public static void ClearTempData()
-        {
-            UserID = "";
-            Login = "";
-            Password = "";
-            Email = "";
-        }
+       
     }
 }

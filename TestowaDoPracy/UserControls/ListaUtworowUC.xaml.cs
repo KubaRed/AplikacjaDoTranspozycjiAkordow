@@ -31,11 +31,11 @@ namespace AplikacjaDoTranspozycji.UserControls
         {
             if (checkBoxAddMelody.IsChecked == true)
             {
-                AddToDataBase.AddMelodyIntoDb(TextBoxTitle.Text, TextBoxNotes.Text);
+                AddToDataBase.AddMelodyIntoDb(TextBoxTitle.Text, TextBoxNotes.Text, TemporaryData.UserID);
             }
             else if (checkBoxAddChordSong.IsChecked == true)
             {
-                AddToDataBase.AddChordSongIntoDb(TextBoxTitle.Text, TextBoxNotes.Text);
+                AddToDataBase.AddChordSongIntoDb(TextBoxTitle.Text, TextBoxNotes.Text, TemporaryData.UserID);
             }
             else { MessageBox.Show("Wybierz czy chcesz dodać melodię lub akordy utworu!", "Dodaj utwór", MessageBoxButton.OK, MessageBoxImage.Information); }
         }
@@ -43,18 +43,23 @@ namespace AplikacjaDoTranspozycji.UserControls
         private void CheckBoxAddMelody_Checked(object sender, RoutedEventArgs e)
         {
             checkBoxAddChordSong.IsChecked = false;
-            Combobox.FillComboboxMelody(comboBoxChordSong);
+            Combobox.FillComboboxMelody(comboBoxChordSong, TemporaryData.UserID);
         }
 
         private void CheckBoxAddChordSong_Checked(object sender, RoutedEventArgs e)
         {
             checkBoxAddMelody.IsChecked = false;
-            Combobox.FillComboboxChordSong(comboBoxChordSong);
+            Combobox.FillComboboxChordSong(comboBoxChordSong, TemporaryData.UserID);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            if (checkBoxAddChordSong.IsChecked == true)
+                DeleteFromDataBase.DeleteChordSongFromDb(comboBoxChordSong.Text, TemporaryData.UserID); 
+            else if (checkBoxAddMelody.IsChecked == true)
+                DeleteFromDataBase.DeleteSongFromDb(comboBoxChordSong.Text, TemporaryData.UserID);
+            else
+                MessageBox.Show("Wybierz rodzaj utworu do usunięcia.", "Usuń utwór", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

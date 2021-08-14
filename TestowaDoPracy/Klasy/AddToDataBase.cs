@@ -12,7 +12,7 @@ namespace AplikacjaDoTranspozycji.Klasy
 {
     class AddToDataBase
     {
-        public static void AddInstrumentToDb(string name, string key)
+        public static void AddInstrumentToDb(string name, string key, int userId)
         {
             string[] InstrumentKeys = { "C", "Bb", "Es", "F" };
 
@@ -20,7 +20,7 @@ namespace AplikacjaDoTranspozycji.Klasy
             {
                 using (APlikacjaDoTranspozycjiEntities db = new APlikacjaDoTranspozycjiEntities())
                 {
-                    if (db.Instruments.Any(o => o.InstrumentName== name) && InstrumentKeys.Contains(key))
+                    if (db.Instruments.Any(o => o.InstrumentName== name && o.UserID == userId) && InstrumentKeys.Contains(key))
                     {
 
                         MessageBox.Show("Instrument " + name + " nie został dodany. Sprawdź poprawność podanego stroju, np. C, Es, Bb, F.", "Dodaj", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -31,6 +31,7 @@ namespace AplikacjaDoTranspozycji.Klasy
                         {
                             InstrumentName = name,
                             InstrumentKey = key,
+                            UserID = userId,
 
                         };
                         db.Instruments.Add(instrument);
@@ -86,14 +87,14 @@ namespace AplikacjaDoTranspozycji.Klasy
             //LocalSQLServerConnection.CloseConnection();
         }
 
-        public static void AddMelodyIntoDb(string title, string chord)
+        public static void AddMelodyIntoDb(string title, string chord, int userId)
         {
 
             try
             {
                 using (APlikacjaDoTranspozycjiEntities db = new APlikacjaDoTranspozycjiEntities())
                 {
-                    if (db.Songs.Any(o => o.Title== title))
+                    if (db.Songs.Any(o => o.Title== title && o.UserID == userId))
                     {
 
                         MessageBox.Show("Utwór " + title + " nie został dodany. Wypełnij wszystkie pola, lub podany tutył już istnieje", "Lista utworów", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -103,7 +104,8 @@ namespace AplikacjaDoTranspozycji.Klasy
                         Songs song = new Songs()
                         {
                             Title = title,
-                            Notes = chord
+                            Notes = chord,
+                            UserID = userId,
 
                         };
                         db.Songs.Add(song);
@@ -158,14 +160,14 @@ namespace AplikacjaDoTranspozycji.Klasy
             //LocalSQLServerConnection.CloseConnection();
         }
 
-        public static void AddChordSongIntoDb(string title, string chord)
+        public static void AddChordSongIntoDb(string title, string chord, int userId)
         {
 
             try
             {
                 using (APlikacjaDoTranspozycjiEntities db = new APlikacjaDoTranspozycjiEntities())
                 {
-                    if (db.ChordSongs.Any(o => o.Title == title))
+                    if (db.ChordSongs.Any(o => o.Title == title && o.UserID == userId))
                     {
 
                         MessageBox.Show("Utwór " + title + " nie został dodany. Wypełnij wszystkie pola, lub podany tutył już istnieje", "Lista utworów", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -175,7 +177,8 @@ namespace AplikacjaDoTranspozycji.Klasy
                         ChordSongs song = new ChordSongs()
                         {
                             Title = title,
-                            Chord = chord
+                            Chord = chord,
+                            UserID = userId,
 
                         };
                         db.ChordSongs.Add(song);

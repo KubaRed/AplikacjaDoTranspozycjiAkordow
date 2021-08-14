@@ -25,10 +25,9 @@
 
             <StackPanel x:Name="stackPanelStrojPoczatkowy"/>
 
-            <StackPanel Orientation="Vertical" Margin="700,-80,0,0">
-
-                <CheckBox x:Name="checkBoxAddMelody" Content="Dodaj dźwieki melodii" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxAddMelody_Checked" />
-                <CheckBox x:Name="checkBoxAddChordSong" Content="Dodaj akordy utworu" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxAddChordSong_Checked"/>
+            <StackPanel Orientation="Vertical" Margin="700,-80,0,0"> 
+                <CheckBox x:Name="checkBoxAddMelody" Content="Dodaj / Usuń dźwięki melodii" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxAddMelody_Checked" />
+                <CheckBox x:Name="checkBoxAddChordSong" Content="Dodaj / Usuń akordy utworu" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxAddChordSong_Checked"/>
                 <TextBlock Text="Wybierz pozycję do usunięcia" FontSize="20" FontFamily="Impact" Foreground="White" Margin="50,20,0,0"/>
                 <ComboBox x:Name="comboBoxChordSong" Width="360" Margin="0,20,0,0" FontSize="20 " Background="White" FontFamily="Impact" DisplayMemberPath="Title" />
             </StackPanel>

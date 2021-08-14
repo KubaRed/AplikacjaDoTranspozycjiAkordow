@@ -93,7 +93,7 @@
                 <CheckBox x:Name="checkBoxInstrument" Content="Transpozycja względem instrumentów" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxInstrument_Checked" Unchecked="CheckBoxInstrument_Unchecked"/>
                 <CheckBox x:Name="checkBoxStroj" Content="Transpozycja względem strojów" HorizontalAlignment="Left" Height="39" Margin="30,10,0,0" VerticalAlignment="Top" Width="376" FontFamily="Impact" FontSize="20" Foreground="White" Background="White" Checked="CheckBoxStroj_Checked" Unchecked="CheckBoxStroj_Unchecked"/>
                 <TextBlock Text="Wybierz Melodię do stranspozycji" FontSize="20" FontFamily="Impact" Foreground="White" Margin="50,20,0,0"/>
-                <ComboBox x:Name="comboBoxMelodie" Width="360" Margin="0,20,0,0" FontSize="20 " Background="White" FontFamily="Impact" DisplayMemberPath="Title" MouseDoubleClick="Combobox_DoubleClick"/>
+                <ComboBox x:Name="comboBoxMelodie" Width="360" Margin="0,20,0,0" FontSize="20 " Background="White" FontFamily="Impact"  DisplayMemberPath="Title" MouseDoubleClick="Combobox_DoubleClick"/>
             </StackPanel>
 
             <StackPanel Margin="0,-20,0,0" Orientation="Horizontal">

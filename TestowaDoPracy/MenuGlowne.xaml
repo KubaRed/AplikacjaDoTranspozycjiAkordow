@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AplikacjaDoTranspozycji"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="MenuGlowne" Height="700" Width="1400" ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" MouseDown="Window_MouseDown">
+        Title="MenuGlowne" Height="700" Width="1400" ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" MouseDown="Window_MouseDown" Loaded="Window_Loaded">
 
     <Grid>
         <Rectangle Margin="0,0,0,0" RadiusX="16" RadiusY="16">
